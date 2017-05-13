@@ -38,7 +38,7 @@ Route::prefix('admin')->middleware('auth')->group(function(){
         //return 'Hello World';
     }]);
     
-    // Route::resource('user', 'UsersController');
+    Route::resource('user', 'UsersController');
     // Route::get('user/{id}/destroy',[
     //     'uses' => 'UsersController@destroy',
     //     'as'   => 'user.destroy'
