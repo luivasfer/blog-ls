@@ -52,6 +52,25 @@
                             </div>
                         </div>
 
+                        {{-- NIVEL --}}
+                        <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
+                        
+                            <label for="nivel" class="col-md-4 control-label">Nivel</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" id="nivel" name="nivel">
+                                    <option>Seleccionar...</option>
+                                    <option value="profesor">Profesor</option>
+                                    <option value="alumno">Alumno</option>
+                                </select>
+                                @if ($errors->has('nivel'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('nivel') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div> {{-- ! --}}
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 

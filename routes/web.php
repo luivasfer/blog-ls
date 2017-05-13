@@ -22,10 +22,22 @@ Route::get('/', function () {
 });
 
 
+//AUTH
+// Authentication Routes...
+    $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    $this->post('login', 'Auth\LoginController@login');
+    $this->post('logout', 'Auth\LoginController@logout')->name('logout');
+    
+    // Password Reset Routes...
+    $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+    $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+    $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+    $this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
+
 //Rutass para el admin
 Route::prefix('admin')->middleware('auth')->group(function(){
-
-    Route::get('/',['as' => 'admin.index', function () {
+   Route::get('/',['as' => 'admin.index', function () {
         if(Auth::user()->nivel == "admin")
         {
             return view('admin.index');
@@ -34,11 +46,10 @@ Route::prefix('admin')->middleware('auth')->group(function(){
         {
             return redirect('/');
         }
-        
         //return 'Hello World';
     }]);
     
-    Route::resource('user', 'UsersController');
+    //Route::resource('user', 'UsersController');
     // Route::get('user/{id}/destroy',[
     //     'uses' => 'UsersController@destroy',
     //     'as'   => 'user.destroy'
