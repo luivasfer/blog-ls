@@ -3,9 +3,23 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Articulo extends Model
 {
+
+    use Sluggable;
+
+    
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'articulo'
+            ]
+        ];
+    }
+
     protected $table = "articulos";
 
     protected $fillable = ['articulo', 'contenido', 'slug', 'img', 'user_id', 'categoria_id'];
