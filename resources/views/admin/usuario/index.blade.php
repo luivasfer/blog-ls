@@ -36,7 +36,7 @@
                         @foreach($users as $user)
                         <tr>
                             <td>{{ $user->id}}</td>
-                            <td>{{ $user->foto}}</td>
+                            <td><img src="{{ asset('img/admin/usuarios/thumb150/')}}/{{$user->foto }}" width="50" alt=""></td>
                             <td>{{ ucwords($user->name)}}</td>
                             <td>{{ ucwords($user->apellido)}}</td>
                             <td>{{ $user->email}}</td>
