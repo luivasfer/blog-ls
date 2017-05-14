@@ -49,11 +49,11 @@ Route::prefix('admin')->middleware('auth')->group(function(){
         //return 'Hello World';
     }]);
     
-    //Route::resource('user', 'UsersController');
-    // Route::get('user/{id}/destroy',[
-    //     'uses' => 'UsersController@destroy',
-    //     'as'   => 'user.destroy'
-    // ]);
+    Route::resource('usuario', 'UsersController');
+    Route::get('usuario/{id}/destroy',[
+        'uses' => 'UsersController@destroy',
+        'as'   => 'usuario.destroy'
+    ]);
 
     // Route::resource('categorias', 'CategoriasController');
     // Route::get('categorias/{id}/destroy',[

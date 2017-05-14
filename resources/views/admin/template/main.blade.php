@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('titulo')</title>
+    <title>@yield('titulo') :: La Salle La Paz</title>
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">   
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Inicio <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Usuarios</a></li>
+                <li><a href="{{ route('usuario.index') }}">Usuarios</a></li>
                 <li><a href="#">Categorias</a></li>
                 <li><a href="#">Articulos</a></li>
                 <li><a href="#">Tags</a></li>
@@ -59,7 +59,22 @@
         </div><!-- /.container-fluid -->
     </nav>
     {{-- FIN MENU --}}
-    @yield('contenido')
+    <div class="container">
+        <div class="row">
+            @include('flash::message')
+            @if(count($errors)>0)
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            @yield('contenido')
+        </div>
+    </div>
+    
     
     {{-- SCRIPTS --}}
     <script src="{{ asset('js/app.js') }}"></script>
