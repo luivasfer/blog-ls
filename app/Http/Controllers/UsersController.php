@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests\UserRequest;
 use Laracasts\Flash\Flash;
+//use Intervention\Image\ImageManager;
 use Image;
 //use App\Http\Requests\UserRequest;
 
@@ -41,6 +42,7 @@ class UsersController extends Controller
     public function store(UserRequest $request)
     {
         if ($request->file('foto')){
+            
             $file = $request->file('foto');
             $name = 'ls_blog_img_' .  time() . '.' .$file->getClientOriginalExtension();
             $path = public_path(). '/img/admin/usuarios/';
@@ -48,7 +50,7 @@ class UsersController extends Controller
 
             //INSTALAR omposer require intervention/image
             $user = Image::make( public_path('img/admin/usuarios/'.$name) );
-            $user->resize(200,null, function($c){
+            $user->resize(150,null, function($c){
                 $c->aspectRatio();
             });
             $user->save('img/admin/usuarios/thumb150/'.$name);
@@ -57,10 +59,10 @@ class UsersController extends Controller
             $user->password = bcrypt($request->password);
             $user->foto = $name;
             $user->save();
+            
             flash("Se ha insertado a " . $user->name . " de forma correcta");
             //dd($user);
             return redirect()->route('usuario.index');
-            
         }
 
 //Guardamos la Imagen
@@ -72,17 +74,6 @@ class UsersController extends Controller
         flash("Se ha insertado a " . $user->name . " de forma correcta");
         //dd($user);
         return redirect()->route('usuario.index');
-        
-        //HASTA AQUI REG
-        
-        /*
-        $user = new User($request->all());
-        $user->password = bcrypt($request->password);
-        $user->save();
-        flash("Se ha insertado a " . $user->name . " de forma correcta");
-        //dd($user);
-        return redirect()->route('usuario.index');
-        */
     }
 
     /**
@@ -117,17 +108,79 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $user = User::find($id);
-        
-        $user->fill($request->all());
-        
-        // $user->name = $request->name;
-        // $user->email = $request->email;
-        // $user->type = $request->type;
-        $user->save();
+          //dd($user->foto);
 
+
+        //$valores = explode(".", $user->foto);
+       // dd($valores);
+
+        //$foto = substr($user->foto, 0,-4);
+
+
+
+        //dd($foto);
+        if ($request->file('foto')){
+            
+            $nombreImagen = explode(".", $user->foto);
+            
+
+            //movemos nueva foto
+            $file = $request->file('foto');
+            $name = $nombreImagen[0]. '.' .$file->getClientOriginalExtension();
+            //dd($name);
+            //ELIMINAMOS IMG ALMACENADA
+            $path = public_path(). '/img/admin/usuarios/'.$user->foto;
+            unlink($path);
+                
+            $path2 = public_path(). '/img/admin/usuarios/thumb150/'.$user->foto;
+            unlink($path2);
+            
+            $path = public_path(). '/img/admin/usuarios/';
+            //dd($path);
+
+            
+            $file->move($path, $name);
+            //INSTALAR omposer require intervention/image
+            $user1 = Image::make( public_path('img/admin/usuarios/'.$name) );
+            $user1->resize(150,null, function($c){
+                $c->aspectRatio();
+            });
+            $user1->save('img/admin/usuarios/thumb150/'.$name);
+            
+
+
+            $user->name = $_POST['name'];
+            $user->apellido = $_POST['apellido'];
+            $user->email = $_POST['email'];
+            $user->nivel = $_POST['nivel'];
+            $user->estado = $_POST['estado'];
+            $user->foto = $name;
+
+            // dd($user);
+            $user->save();
+            flash("Se modifico a " . ucwords($user->name) . " de forma correcta");
+            return redirect()->route('usuario.index'); 
+            /*
+            $user = new User($request->all());
+            $user->foto = $name;
+            $user->save();
+            flash("Se ha insertado a " . $user->name . " de forma correcta");
+            
+            return redirect()->route('usuario.index');*/
+            
+        }
+        //$user->fill($request->all());
+        
+        $user->name = $_POST['name'];
+        $user->apellido = $_POST['apellido'];
+        $user->email = $_POST['email'];
+        $user->nivel = $_POST['nivel'];
+        $user->estado = $_POST['estado'];
+        // dd($user);
+        $user->save();
         flash("Se modifico a " . ucwords($user->name) . " de forma correcta");
-        //dd($user);
         return redirect()->route('usuario.index'); 
     }
 

@@ -29,7 +29,7 @@
         </div>
         <div class="from-group">
             {!! Form::label('foto', 'Foto'); !!}
-            {!! Form::file('foto',['class' => 'form-control']); !!}
+            {!! Form::file('foto',['class' => 'form-control', 'accept' => 'image/png, .jpeg, .jpg']); !!}
         </div>
         <hr>
         <div class="form-group">
