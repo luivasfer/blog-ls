@@ -106,30 +106,19 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
         
         $user = User::find($id);
-          //dd($user->foto);
-
-
-        //$valores = explode(".", $user->foto);
-       // dd($valores);
-
-        //$foto = substr($user->foto, 0,-4);
-
-
-
-        //dd($foto);
+        //entramos si existe el file
         if ($request->file('foto')){
             
             $nombreImagen = explode(".", $user->foto);
-            
 
             //movemos nueva foto
             $file = $request->file('foto');
             $name = $nombreImagen[0]. '.' .$file->getClientOriginalExtension();
-            //dd($name);
+
             //ELIMINAMOS IMG ALMACENADA
             $path = public_path(). '/img/admin/usuarios/'.$user->foto;
             unlink($path);
@@ -158,17 +147,10 @@ class UsersController extends Controller
             $user->estado = $_POST['estado'];
             $user->foto = $name;
 
-            // dd($user);
             $user->save();
             flash("Se modifico a " . ucwords($user->name) . " de forma correcta");
             return redirect()->route('usuario.index'); 
-            /*
-            $user = new User($request->all());
-            $user->foto = $name;
-            $user->save();
-            flash("Se ha insertado a " . $user->name . " de forma correcta");
-            
-            return redirect()->route('usuario.index');*/
+
             
         }
         //$user->fill($request->all());

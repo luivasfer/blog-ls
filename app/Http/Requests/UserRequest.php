@@ -27,8 +27,9 @@ class UserRequest extends FormRequest
             'name'      => 'min:3|max:30|required',
             'apellido'      => 'min:3|max:30|required',
             'email'     => 'min:5|max:180|email|unique:users|required',
-            'password'  => 'min:6|max:10|required',
-            'nivel'  => 'required'
+            'password'  => 'min:6|max:15|required',
+            'nivel'  => 'required',
+            'foto' => 'mimes:jpeg,jpg,png|max:1000',
         ];
     }
 }
