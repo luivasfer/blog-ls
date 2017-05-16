@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 
-
+ 
 
 Route::get('/', function () {
     return view('index');
@@ -55,17 +55,17 @@ Route::prefix('admin')->middleware('auth')->group(function(){
         'as'   => 'usuario.destroy'
     ]);
 
-    // Route::resource('categorias', 'CategoriasController');
-    // Route::get('categorias/{id}/destroy',[
-    //     'uses' => 'CategoriasController@destroy',
-    //     'as'   => 'categorias.destroy'
-    // ]);
+    Route::resource('categorias', 'CategoriasController');
+    Route::get('categorias/{id}/destroy',[
+        'uses' => 'CategoriasController@destroy',
+        'as'   => 'categorias.destroy'
+    ]);
 
-    // Route::resource('tags', 'TagsController');
-    // Route::get('tags/{id}/destroy',[
-    //     'uses' => 'TagsController@destroy',
-    //     'as'   => 'tags.destroy'
-    // ]);
+    Route::resource('tags', 'TagsController');
+    Route::get('tags/{id}/destroy',[
+        'uses' => 'TagsController@destroy',
+        'as'   => 'tags.destroy'
+    ]);
     
 });
 

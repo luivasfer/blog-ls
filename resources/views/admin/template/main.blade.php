@@ -29,9 +29,9 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Inicio <span class="sr-only">(current)</span></a></li>
                 <li><a href="{{ route('usuario.index') }}">Usuarios</a></li>
-                <li><a href="#">Categorias</a></li>
+                <li><a href="{{ route('categorias.index') }}">Categorias</a></li>
                 <li><a href="#">Articulos</a></li>
-                <li><a href="#">Tags</a></li>
+                <li><a href="{{ route('tags.index') }}">Tags</a></li>
                 <li><a href="#">Comentarios</a></li>
 
             </ul>
