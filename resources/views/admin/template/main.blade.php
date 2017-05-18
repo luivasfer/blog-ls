@@ -30,7 +30,7 @@
                 <li class="active"><a href="#">Inicio <span class="sr-only">(current)</span></a></li>
                 <li><a href="{{ route('usuario.index') }}">Usuarios</a></li>
                 <li><a href="{{ route('categorias.index') }}">Categorias</a></li>
-                <li><a href="{{ route('usuario.index') }}">Articulos</a></li>
+                <li><a href="{{ route('articulos.index') }}">Articulos</a></li>
                 <li><a href="{{ route('tags.index') }}">Tags</a></li>
                 <li><a href="#">Comentarios</a></li>
             </ul>
@@ -81,7 +81,7 @@
     <script src="{{ asset('plugins/tinymce/langs/es.js') }}"></script>
     <script>
         tinymce.init({
-            selector: 'textarea',
+            selector: '.editor',
             height: 500,
             theme: 'modern',
             plugins: [
@@ -104,6 +104,6 @@
         });
     </script>
 
-    
+        
 </body>
 </html>

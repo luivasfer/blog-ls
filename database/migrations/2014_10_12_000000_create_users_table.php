@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('apellido', 30);
             $table->string('email')->unique();
             $table->string('password', 80);
-            $table->string('foto', 20)->nullable();
+            $table->string('foto', 80)->nullable();
             $table->string('telefono', 10)->nullable();
             $table->integer('ci')->nullable();
             $table->enum('sexo', ['m', 'f']);

@@ -7,8 +7,11 @@ use App\Articulo;
 use App\Recurso;
 use App\Categoria;
 use App\Tag;
+use App\Http\Requests\ArticuloRequest;
 use Laracasts\Flash\Flash;
 use Image;
+
+
 class ArticulosController extends Controller
 {
     /**
@@ -52,9 +55,52 @@ class ArticulosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticuloRequest $request)
     {
-        //
+        if ($request->file('img'))
+        {
+            $file = $request->file('img');
+            $name = 'ls_articulo_' .  time() . '.' .$file->getClientOriginalExtension();
+            $path = public_path(). '/img/articulos/';
+            $file->move($path, $name);
+
+            //imagen 150
+            $articulos = Image::make( public_path('img/articulos/'.$name) );
+            $articulos->resize(350,null, function($c){
+                $c->aspectRatio();
+            });
+            $articulos->save('img/articulos/thumb350/'.$name);
+
+            //imagen 350
+            $articulos = Image::make( public_path('img/articulos/'.$name) );
+            $articulos->resize(150,null, function($c){
+                $c->aspectRatio();
+            });
+            $articulos->save('img/articulos/thumb150/'.$name);
+
+            $articulos = new Articulo($request->all());
+            $articulos->foto = $name;
+            $articulos->save();
+            
+            flash("Se ha insertado a " . $articulos->name . " de forma correcta");
+            //dd($articulos);
+            return redirect()->route('articulos.index');
+        }
+
+//Guardamos la Imagen
+        //$name = 'ls_articulo_' .  time() . '.jpg';
+        // $articulos->user_id = \Auth::user()->id;
+        // dd($articulos->user_id);
+        // dd($articulos->user_id);
+        // $articulos = new Articulo($request->all());
+        // $articulos->foto = $name;
+        // $articulos->save();
+
+        // $articulos->tags()->sync($request->tags);
+
+        // flash("Se ha insertado a " . $articulos->name . " de forma correcta");
+        // //dd($user);
+        // return redirect()->route('articulos.index'); 
     }
 
     /**

@@ -22,7 +22,7 @@ class Articulo extends Model
 
     protected $table = "articulos";
 
-    protected $fillable = ['articulo', 'contenido', 'slug', 'img', 'user_id', 'categoria_id'];
+    protected $fillable = ['articulo', 'contenido', 'slug', 'img', 'estado', 'user_id', 'categoria_id'];
 
     //relacion con Categoria
     public function categoria()

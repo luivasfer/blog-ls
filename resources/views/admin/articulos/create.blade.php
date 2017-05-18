@@ -4,7 +4,7 @@
      {!! Form::open(['route' => 'articulos.store', 'method'=>'POST', 'files' => true]) !!}
      
         <div class="form-group">
-            {!! Form::label('articulo', 'Articulo'); !!}
+            {!! Form::label('articulo', 'Título del Articulo'); !!}
             {!! Form::text('articulo', null, ['class'=>'form-control', 'placeholder' => 'Nombre de Articulo']); !!}
         </div>
 
@@ -14,15 +14,15 @@
         </div>
 
         <div class="form-group">
-            {!! Form::label('descripcion', 'Descripción'); !!}
-            {!! Form::textarea('descripcion', null, ['class'=>'form-control', 'placeholder' => 'Descripcion del Producto', 'rows'=>5]); !!}
+            {!! Form::label('contenido', 'Contenido'); !!}
+            {!! Form::textarea('contenido', null, ['class'=>'form-control editor', 'placeholder' => 'Contenido', 'rows'=>5]); !!}
         </div>
 
         <div class="form-group">
-            {!! Form::label('nombre', 'Imagen'); !!}
-            {!! Form::file('nombre',['class'=>'form-control', 'accept'=>'.png, .jpg, .jpeg']); !!}
+            {!! Form::label('img', 'Imagen'); !!}
+            {!! Form::file('img',['class'=>'form-control', 'accept'=>'.png, .jpg, .jpeg']); !!}
         </div>
-        
+
         <div class="form-group">
             {!! Form::label('tags', 'Tags') !!}
             {!! Form::select('tags[]', $tags, null, ['class'=>'form-control select-tag', 'multiple']) !!}
@@ -35,7 +35,7 @@
             {!! Form::submit('Crear producto',['class'=>'btn btn-primary']); !!}
         </div>
      {!! Form::close() !!}
-
+     
 
 @endsection
 
