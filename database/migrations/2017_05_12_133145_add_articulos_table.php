@@ -18,7 +18,7 @@ class AddArticulosTable extends Migration
             $table->string('articulo');
             $table->text('contenido');
             $table->string('slug');
-            $table->string('img', 20);
+            $table->string('img', 80);
             $table->enum('estado', [0, 1])->default(1);
             $table->integer('user_id')->unsigned();
             $table->integer('categoria_id')->unsigned();

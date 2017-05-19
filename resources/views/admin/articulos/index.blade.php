@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-xs-6"><a href="{{route('articulos.create')}}" class="btn btn-info">
         <i class="glyphicon glyphicon-plus-sign"></i>
-     Insertar nuevo articulo
+        Insertar articulo
     </a></div>
         <div class="col-xs-6">
             {!! Form::open(['route'=>'articulos.index', 'method' => 'GET', 'class'=>'navbar-form pull-right']) !!}
@@ -43,12 +43,13 @@
                 <td>{{ ucwords($articulo->user->name) }}</td>
                 
                 <td>
-                    {{-- <a href="{{ route('articulos.edit', $articulo->id) }}" class="btn btn-success btn-sm">
+                    <a href="{{ route('articulos.edit', $articulo->id) }}" class="btn btn-success btn-sm">
                         <i class="glyphicon glyphicon-edit"></i>
                     </a>
+                    
                     <a href="{{ route('articulos.destroy', $articulo->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que de seas eliminarlo?')">
                         <i class="glyphicon glyphicon-remove-circle"></i>
-                    </a> --}}
+                    </a>
                 </td>
             </tr>
             @endforeach

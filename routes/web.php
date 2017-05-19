@@ -68,6 +68,10 @@ Route::prefix('admin')->middleware('auth')->group(function(){
     ]);
 
     Route::resource('articulos', 'ArticulosController');
+    Route::get('articulos/{id}/destroy',[
+        'uses' => 'ArticulosController@destroy',
+        'as'   => 'articulos.destroy'
+    ]);
     
 });
 

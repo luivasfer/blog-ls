@@ -8,6 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">   
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('plugins/chosen/chosen.min.css')}}">
 </head>
 <body>
     {{-- MENU --}}
@@ -77,6 +78,17 @@
     
     {{-- SCRIPTS --}}
     <script src="{{ asset('js/app.js') }}"></script>
+    {{-- TAGS CHOSEN --}}
+    <script src="{{ asset('plugins/chosen/chosen.jquery.min.js') }}"></script>
+    <script>
+        $(".select-tag").chosen({
+            placeholder_text_multiple: 'Seleccione palabras clave',
+            max_selected_options:5,
+            no_results_text: 'no se encontró este tag'
+        });
+       
+    </script>
+
     <script src="{{ asset('plugins/tinymce/tinymce.min.js') }}"></script>
     <script src="{{ asset('plugins/tinymce/langs/es.js') }}"></script>
     <script>

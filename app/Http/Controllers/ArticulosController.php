@@ -65,18 +65,18 @@ class ArticulosController extends Controller
         {
             $file = $request->file('img');
             $name = 'ls_articulo_' .  time() . '.' .$file->getClientOriginalExtension();
-            $path = public_path(). '/img/articulos/';
+            $path = public_path(). '/img/articulos/original/';
             $file->move($path, $name);
 
             //imagen 150
-            $articulos = Image::make( public_path('img/articulos/'.$name) );
+            $articulos = Image::make( public_path('img/articulos/original/'.$name) );
             $articulos->resize(350,null, function($c){
                 $c->aspectRatio();
             });
             $articulos->save('img/articulos/thumb350/'.$name);
 
             //imagen 350
-            $articulos = Image::make( public_path('img/articulos/'.$name) );
+            $articulos = Image::make( public_path('img/articulos/original/'.$name) );
             $articulos->resize(150,null, function($c){
                 $c->aspectRatio();
             });
@@ -93,25 +93,11 @@ class ArticulosController extends Controller
             $articulos->tags()->sync($request->tags);
             
 
-            flash("Se ha insertado a " . $articulos->articulo . " de forma correcta");
+            flash("Se inserto el artículo " . $articulos->articulo . " de forma correcta");
             //dd($articulos);
             return redirect()->route('articulos.index');
         }
 
-//Guardamos la Imagen
-        //$name = 'ls_articulo_' .  time() . '.jpg';
-        // $articulos->user_id = \Auth::user()->id;
-        // dd($articulos->user_id);
-        // dd($articulos->user_id);
-        // $articulos = new Articulo($request->all());
-        // $articulos->foto = $name;
-        // $articulos->save();
-
-        // $articulos->tags()->sync($request->tags);
-
-        // flash("Se ha insertado a " . $articulos->name . " de forma correcta");
-        // //dd($user);
-        // return redirect()->route('articulos.index'); 
     }
 
     /**
@@ -133,7 +119,23 @@ class ArticulosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $articulo = Articulo::find($id);
+        //relacion con categoria
+        $articulo->categoria;
+        //dd($articulo->categoria);
+        $categorias = Categoria::orderBy('categoria', 'DESC')->pluck('categoria','id');
+        $tags = Tag::orderBy('tag', 'DESC')->pluck('tag','id');
+
+        //realcion con tags (transformamos objeto a un arrar ToArray)
+        //pluck -> listamos los obtjetos y convertimos en array
+        $my_tags = $articulo->tags->pluck('id')->ToArray();
+        //dd($my_tags);
+
+        return view('admin.articulos.edit')
+            ->with('categorias', $categorias)
+            ->with('articulo', $articulo)
+            ->with('tags', $tags)
+            ->with('my_tags', $my_tags);
     }
 
     /**
@@ -145,7 +147,75 @@ class ArticulosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $articulo = Articulo::find($id);
+        if ($request->file('img'))
+        {
+            $nombreImagen = explode(".", $articulo->img);
+
+            $file = $request->file('img');
+            $name = $nombreImagen[0]. '.' .$file->getClientOriginalExtension();
+
+            //ELIMINAMOS IMG ALMACENADA
+            $path = public_path(). '/img/articulos/original/'.$articulo->img;
+            unlink($path);
+                
+            $path2 = public_path(). '/img/articulos/thumb150/'.$articulo->img;
+            unlink($path2);
+
+            $path3 = public_path(). '/img/articulos/thumb350/'.$articulo->img;
+            unlink($path3);
+
+            $path = public_path(). '/img/articulos/original/';
+
+            $file->move($path, $name);
+
+            //INSTALAR omposer require intervention/image
+            $articulo1 = Image::make( public_path('img/articulos/original/'.$name) );
+            $articulo1->resize(150,null, function($c){
+                $c->aspectRatio();
+            });
+            $articulo1->save('img/articulos/thumb150/'.$name);
+
+            $articulo2 = Image::make( public_path('img/articulos/original/'.$name) );
+            $articulo2->resize(350,null, function($c){
+                $c->aspectRatio();
+            });
+            $articulo2->save('img/articulos/thumb350/'.$name);
+
+            $articulo->articulo = $_POST['articulo'];
+            $articulo->categoria_id = $_POST['categoria_id'];
+            $articulo->contenido = $_POST['contenido'];
+            $articulo->img = $name;
+            
+            $articulo->save();
+            
+            //llamamos al metodo tags()
+            //sync -> rellena la tabla pibote 
+            $articulo->tags()->sync($request->tags);
+            
+
+            flash("Se modificó el artículo " . $articulo->articulo . " de forma correcta");
+            //dd($articulos);
+            return redirect()->route('articulos.index');
+        }
+        //dd($articulo->img);
+
+
+        $articulo->articulo = $_POST['articulo'];
+        $articulo->categoria_id = $_POST['categoria_id'];
+        $articulo->contenido = $_POST['contenido'];
+        
+
+
+
+        $articulo->save();
+        //llamamos al metodo tags()
+        //sync -> rellena la tabla pibote 
+        $articulo->tags()->sync($request->tags);
+        flash("Se modificó el articulo " . $articulo->articulo . " de forma correcta");
+            //dd($articulos);
+            return redirect()->route('articulos.index');
+
     }
 
     /**
@@ -156,6 +226,32 @@ class ArticulosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $articulo = Articulo::find($id);
+        
+
+        //$articulo = Articulo::all()->where('id', $id)->first();
+
+        $direccion =  public_path(). '/img/articulos/original/'.$articulo->img;
+        if(is_file($direccion))
+        {
+            //dd($articulo);
+            $path = public_path(). '/img/articulos/original/'.$articulo->img;
+            unlink($path);
+                
+            $path2 = public_path(). '/img/articulos/thumb150/'.$articulo->img;
+            unlink($path2);
+            
+            $path3 = public_path(). '/img/articulos/thumb350/'.$articulo->img;
+            unlink($path3);
+            
+            $articulo->delete();
+            flash('Se eliminó el artículo ' . ucwords($articulo->articulo) . ' de forma correcta' ,'danger');
+            return redirect()->route('articulos.index');
+        }else{
+            
+            $articulo->delete();
+            flash('Se eliminó el artículo ' . ucwords($articulo->articulo) . ' de forma correcta' ,'danger');
+            return redirect()->route('articulos.index');
+        }
     }
 }
