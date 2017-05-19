@@ -182,6 +182,7 @@ return [
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        \Cviebrock\ImageValidator\ImageValidatorServiceProvider::class,
 
     ],
 

@@ -57,6 +57,10 @@ class ArticulosController extends Controller
      */
     public function store(ArticuloRequest $request)
     {
+        //dd($request->tags);
+       
+        
+
         if ($request->file('img'))
         {
             $file = $request->file('img');
@@ -79,10 +83,17 @@ class ArticulosController extends Controller
             $articulos->save('img/articulos/thumb150/'.$name);
 
             $articulos = new Articulo($request->all());
-            $articulos->foto = $name;
+            $articulos->user_id = \Auth::user()->id;
+            
+            $articulos->img = $name;
             $articulos->save();
             
-            flash("Se ha insertado a " . $articulos->name . " de forma correcta");
+            //llamamos al metodo tags()
+            //sync -> rellena la tabla pibote 
+            $articulos->tags()->sync($request->tags);
+            
+
+            flash("Se ha insertado a " . $articulos->articulo . " de forma correcta");
             //dd($articulos);
             return redirect()->route('articulos.index');
         }

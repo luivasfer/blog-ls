@@ -29,7 +29,7 @@ class ArticuloRequest extends FormRequest
             'articulo'      => 'min:5|max:100|required',
             'contenido'     => 'min:10|required',
             'categoria_id'  => 'required',
-            'img'           => 'mimes:jpeg,jpg,png|max:800|required',
+            'img'           => 'mimes:jpeg,jpg,png|max:800|image_size:>=350,*|required',
         ];
     }
     public function messages()
@@ -38,7 +38,7 @@ class ArticuloRequest extends FormRequest
             'articulo.required' => 'El título del :attribute es obligatorio.',
             'articulo.min' => 'El título del :attribute debe tener almenos 5 caracteres',
             'price.required' => 'Añade un :attribute al producto',
-            'price.min' => 'El :attribute debe ser mínimo 0'
+            'price.min' => 'El :attribute debe ser mínimo 0',
         ];
     }
 

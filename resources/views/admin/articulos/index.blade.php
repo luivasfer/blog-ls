@@ -23,35 +23,25 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                @if(Auth::user()->name == 'admin')
-                    <th>ID</th>
-                @endif
+                <th>ID</th>
                 <th>Imagen</th>
                 <th>Artículo</th>
                 <th>Categoria</th>
-                @if(Auth::user()->name == 'admin')
-                    <th>Usuario</th>
-                @endif
+                <th>Usuario</th>
+                
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             @foreach($articulos as $articulo)
             <tr>
-                @if(Auth::user()->name == 'admin')
-                    <td>{{ $articulo->id}}</td>
-                @endif
-                <td>
-                    @foreach($imagenes->where('articulo_id','=',$articulo->id) as $imagen)
-                    @endforeach
-                    <img src="{{ asset('img/articulos/thumb200/') }}/{{$imagen->nombre}}" alt="{{$articulo->titulo}}" width="60">
-                    
-                </td>
-                <td>{{ ucfirst($articulo->titulo) }}</td>
-                <td>{{ ucwords($articulo->categoria->marca) }}</td>
-                @if(Auth::user()->name == 'admin')
-                    <td>{{ ucwords($articulo->user->name) }}</td>
-                @endif
+                <td>{{ $articulo->id}}</td>
+                
+                <td><img src="{{ asset('img/articulos/thumb150/')}}/{{$articulo->img }}" width="60" alt=""></td>
+                <td>{{ ucfirst($articulo->articulo) }}</td>
+                <td>{{ ucwords($articulo->categoria->categoria) }}</td>
+                <td>{{ ucwords($articulo->user->name) }}</td>
+                
                 <td>
                     {{-- <a href="{{ route('articulos.edit', $articulo->id) }}" class="btn btn-success btn-sm">
                         <i class="glyphicon glyphicon-edit"></i>
