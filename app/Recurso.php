@@ -8,13 +8,13 @@ class Recurso extends Model
 {
     protected $table = "recursos";
 
-    protected $fillable = ['recurso', 'tipo', 'articulo_id'];
+    protected $fillable = ['recurso', 'tipo', 'user_id'];
 
     //relacion con articulo
-    public function articulo()
+    public function user()
     {
         //manera inversa
-        return $this->belongsTo('App\Articulo');
+        return $this->belongsTo('App\User');
     }
 
 }

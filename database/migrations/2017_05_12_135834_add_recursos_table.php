@@ -15,12 +15,13 @@ class AddRecursosTable extends Migration
     {
         Schema::create('recursos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('recurso', 20);
-            $table->string('tipo', 3);
-            $table->integer('articulo_id')->unsigned();
+            $table->string('recurso', 150);
+            $table->string('archivo', 40);
+            $table->string('tipo', 4);
+            $table->integer('user_id')->unsigned();
 
             //relacionamos
-            $table->foreign('articulo_id')->references('id')->on('articulos')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -40,5 +40,11 @@ class User extends Authenticatable
         //uno a muchos
         return $this->hasMany('App\Comentario');
     }
+    //realcioin con recursos
+    public function recursos()
+    {
+        //uno a muchos
+        return $this->hasMany('App\Recurso');
+    }
     
 }

@@ -72,6 +72,8 @@ Route::prefix('admin')->middleware('auth')->group(function(){
         'uses' => 'ArticulosController@destroy',
         'as'   => 'articulos.destroy'
     ]);
+
+    Route::resource('recursos', 'RecursosController');
     
 });
 

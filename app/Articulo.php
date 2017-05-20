@@ -38,13 +38,6 @@ class Articulo extends Model
         return $this->belongsTo('App\User');
     }
 
-    //realcioin con recursos
-    public function recursos()
-    {
-        //uno a muchos
-        return $this->hasMany('App\Recurso');
-    }
-
     //realcioin con TAGS
     public function tags()
     {
