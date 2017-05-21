@@ -74,6 +74,10 @@ Route::prefix('admin')->middleware('auth')->group(function(){
     ]);
 
     Route::resource('recursos', 'RecursosController');
+    Route::get('recursos/{id}/destroy',[
+        'uses' => 'RecursosController@destroy',
+        'as'   => 'recursos.destroy'
+    ]);
     
 });
 

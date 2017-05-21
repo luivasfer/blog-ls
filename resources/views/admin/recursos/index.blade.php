@@ -23,10 +23,10 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Copiar</th>
                             <th>Recurso</th>
-                            <th>Archivo</th>
-                            <th>Tipo</th>
                             <th>Usuario</th>
+                            <th></th>
                             
                         </tr>
                     </thead>
@@ -35,43 +35,38 @@
                         @foreach($recursos as $recurso)
                         <tr>
                             <td>{{ $recurso->id}}</td>
-                            <td>{{ ucwords($recurso->recurso)}}</td>
-                            <td>
-                                <?php  $extension = explode(".", $recurso->archivo); 
-                                 $extension = strtolower($extension[1])
-                                ?>
-
-                                @if(($extension == 'jpg') || ($extension == 'jpeg') || ($extension == 'png') || ($extension == 'gif'))
-                                    <img src="{{ asset('recursos/thumb150/')}}/{{$recurso->archivo }}" height="30" alt="{{ $recurso->recurso }}">
-                                @endif
-
+                            <td width="100">
+                                
+                                    <span style="cursor:pointer" onclick="copyToClipboard('#p{{ $recurso->id }}')"><img src="{{ asset('recursos/copiar.svg')}}" width="18" alt="Copiar Link" title="Copiar recurso"></span>
+                                    <p id="p{{ $recurso->id }}" style="display:none">{{ asset('recursos/original/')}}/{{$recurso->archivo}}</p>
+                                
                             </td>
+                           
                             <td>
                                 <?php $extension = strtolower($recurso->tipo); ?>
                                 @if(($extension == 'jpg') || ($extension == 'jpeg') || ($extension == 'png') || ($extension == 'gif'))
-                                    <img src="{{ asset('recursos/img.svg')}}" height="30" alt="{{ $recurso->recurso }}">
+                                    <img src="{{ asset('recursos/img.svg')}}" height="20" alt="{{ $recurso->recurso }}">
+                                    <a href="#" class="screenshot" rel="{{ asset('recursos/thumb150/')}}/{{$recurso->archivo }}">{{ ucwords($recurso->recurso)}}</a>
                                 @else
-                                    <img src="{{ asset('recursos/pdf.png')}}" height="30" alt="{{ $recurso->recurso }}">
+                                    <img src="{{ asset('recursos/pdf.png')}}" height="20" alt="{{ $recurso->recurso }}">
+                                    <a href="{{ asset('recursos/original/')}}/{{$recurso->archivo}}" target="_blank">{{ ucwords($recurso->recurso)}}</a>
                                 @endif
                             </td>
                             <td>{{ $recurso->user->name}}</td>
+                            
                             <td>
-                                {{--<a href="{{ route('usuario.edit', $user->id) }}" class="btn btn-success btn-sm">
-                                    <i class="glyphicon glyphicon-edit"></i>
-                                </a>
-                                
-                                <a href="{{ route('usuario.destroy', $user->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que de seas eliminarlo?')">
+                                <a href="{{ route('recursos.destroy', $recurso->id) }}" title="Eliminar" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que de seas eliminarlo?')">
                                     <i class="glyphicon glyphicon-remove-circle"></i>
-                                </a> --}}
+                                </a>
                             </td>
+
                         </tr>
                         @endforeach
                         
                     </tbody>
                 </table>
-             </div>
                 <div class="text-center">
-                    {{-- $recursos->links() --}}
+                    {{ $recursos->links() }}
                 </div>
             </div>
 

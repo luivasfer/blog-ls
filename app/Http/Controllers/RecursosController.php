@@ -8,6 +8,7 @@ use App\Http\Requests\RecursoRequest;
 use Laracasts\Flash\Flash;
 use Image;
 
+
 class RecursosController extends Controller
 {
     /**
@@ -134,6 +135,29 @@ class RecursosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $recurso = Recurso::find($id);
+
+        $direccion =  public_path(). '/recursos/original/'.$recurso->archivo;
+        if(is_file($direccion))
+        {
+            //dd($articulo);
+            $path = public_path(). '/recursos/original/'.$recurso->archivo;
+            unlink($path);
+                
+            $path2 = public_path(). '/recursos/thumb150/'.$recurso->archivo;
+            unlink($path2);
+            
+            $path3 = public_path(). '/recursos/thumb350/'.$recurso->archivo;
+            unlink($path3);
+            
+            $recurso->delete();
+            flash('Se eliminó el artículo ' . ucwords($recurso->recurso) . ' de forma correcta' ,'danger');
+            return redirect()->route('recursos.index');
+        }else{
+            
+            $recurso->delete();
+            flash('Se eliminó el artículo ' . ucwords($recurso->recurso) . ' de forma correcta' ,'danger');
+            return redirect()->route('recursos.index');
+        }
     }
 }

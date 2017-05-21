@@ -24,7 +24,7 @@ class RecursoRequest extends FormRequest
     public function rules()
     {
         return [
-            'recurso'      => 'min:5|max:100|required',
+            'recurso'      => 'min:3|max:100|required',
             'archivo'      => 'mimes:jpeg,jpg,png,pdf|max:1000|required',
         ];
     }
