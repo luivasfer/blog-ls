@@ -1,0 +1,192 @@
+<link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nobile:500" rel="stylesheet">
+html, body{
+    width: 100%;
+}
+.inicio-portada{
+    background-color:#ad2225; 
+    background-image: url(../img/fondo-iconos.svg);
+    background-size:90%;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+}
+.inicio-portada .intro{
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+.inicio-portada .intro .entrar{
+    margin-top:3em;
+    width: 28px;
+    height: 36px;
+    
+}
+.inicio-portada .intro .nube{
+    background-image: url(../img/nube.svg);
+    height: 270px;
+    width: 240px;
+    margin: 0 auto;
+}
+.inicio-portada .intro .nube .logo{
+    margin: 45px;
+}
+.inicio-portada .intro h1{
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 2.4em;
+    margin: 1em 0 0.3em 0;
+}
+.inicio-portada .intro h2{
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
+}
+
+
+/**------- BLOG -------**/
+
+.blog{
+    font-family: 'Nobile', sans-serif;
+    background-color: white;
+}
+
+h3{
+    font-size: 1.2em;
+    margin: 1em 0 .5em 0;
+    padding: 0;
+    font-weight: normal !important;
+    color: #a91c1c;
+}
+.ultimo-articulo{
+    border-bottom:1px dashed #ccc;
+    padding: 0.7em 0;
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    color: #3984B9;
+}
+.ultimo-articulo i{
+    color: silver
+}
+.categorias-inicio{
+    border-bottom:1px dashed #ccc;
+    padding: 0.7em 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 12px;
+    color: #3984B9;
+}
+.categorias-inicio img{
+    margin-right: 1em;
+}
+/****--MENU BLOG---*/
+.blog{
+    box-shadow: -10px 0 100px rgba(0, 0, 0, .8);
+    padding-top: 8em;
+}
+.menu{
+    border-bottom: 1px solid #d5d5d5;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    background: rgba(255, 255, 255, 1);
+    height: 50px;
+}
+.numero-categoria{
+    background-color: #dadada;
+    position: absolute;
+    right: 1.1em;
+    padding: .1em .5em 0 .4em;
+    border-radius: 3px;
+    color: white;
+    text-align: center;
+}
+
+/*    --- GRID   ----**/
+#container-01,
+#container-02 {
+    margin:20px auto;
+    max-width:800px;
+}
+
+.pinto {
+    margin-bottom:15px;
+    color:#333;
+    text-align:left;
+    
+    overflow:hidden;
+    border: 1px solid #d5d5d5;
+    border-bottom: 4px solid #d5d5d5;
+}
+.pinto .img {
+    display:block;
+    width:100%;
+    border-bottom: 1px solid #d5d5d5;
+}
+.pinto .img1 {
+    margin: 0 .3em;
+}
+.pinto .info {
+    padding:10px 15px;
+    background-color:#fff;
+}
+.pinto .info h2 {
+    margin:0;
+    font-size:1.1em;
+    font-family: 'Nobile', sans-serif;
+    color: #3984B9;
+    line-height: 1.2em;
+}
+.pinto .info p {
+    margin:10px 0 0;
+    font-size:14px;
+}
+
+.pinto .opciones{
+    border-top: 1px solid #d5d5d5;
+    padding: .4em .5em;
+}
+
+
+
+/*  ---- COLORES -----*/
+.c-silver{
+    color: silver;
+}
+
+/*AYUDA CLASES*/
+.alto100{
+    height: 100%;
+}
+.borde{
+    border:1px solid blue;
+}
+.margin0{
+    margin: 0;
+}
+.padding0{
+    padding: 0;
+}
+.margin-top2em{
+    margin-top: 2em;
+}
+.linea{
+    background-color: #e0e0e0;
+    height: 3px;
+    width: 100%;
+    border-bottom: 1px solid white;
+}
+.font-size14{
+    font-size:14px; 
+}
+.font-size12{
+    font-size:12px; 
+}

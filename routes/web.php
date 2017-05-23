@@ -15,12 +15,10 @@
 //     return view('welcome');
 // });
 
- 
 
-Route::get('/', function () {
-    return view('index');
-});
 
+Route::name('frontend.index')
+    ->get('/', 'FrontController@index');
 
 //AUTH
 // Authentication Routes...
