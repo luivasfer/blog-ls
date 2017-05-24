@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Categoria;
+use App\Articulo;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -13,7 +14,33 @@ class FrontController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
+
+        //contamos Los articulos en las categprias
+        $contarArticulos = Articulo::all();
+
+        //dd($contarArticulos);
+
+        $articulos = Articulo::orderBy('id','DESC')->paginate(10);
+        $categorias = Categoria::all();
+
+        $listaCategorias = Categoria::all();
+         //simulamos el foreach
+            // $productos->each(function($productos){
+            //     //$productos->count();
+            // });
+            //dd($productos->id);
+            //$productos->categoria;
+           
+
+        return view('frontend.index')
+            ->with('articulos', $articulos)
+            ->with('categorias', $categorias)
+            ->with('listaCategorias', $listaCategorias)
+            ->with('contarArticulos', $contarArticulos);
+
+        //return view('frontend.repuestos');
+
+        //return view('frontend.index');
     }
 
     /**

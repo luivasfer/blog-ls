@@ -26,10 +26,28 @@
     <script src="{{ asset('js/propios.js') }}"></script>
 
     {{-- scroll --}}
-    <script>
-        
-    </script>
     
+    <script>
+        //$( "p" ).addClass( "visibility animated fadeIn wow" );
+        new WOW().init();
+    </script>
+    <script>
+        (function(){
+            var parallax = document.querySelectorAll(".parallax"),
+                speed = 0.5;
+
+            window.onscroll = function(){
+                [].slice.call(parallax).forEach(function(el,i){
+
+                var windowYOffset = window.pageYOffset,
+                    elBackgrounPos = "0 " + (windowYOffset * speed) + "px";
+                
+                el.style.backgroundPosition = elBackgrounPos;
+
+                });
+            };
+        })();
+    </script>
     
 </body>
 </html>

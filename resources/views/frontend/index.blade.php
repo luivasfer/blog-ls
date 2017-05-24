@@ -2,40 +2,54 @@
 
 @section ('titulo', 'Blog')
 @section ('contenido')
-<div class="menu">
-    <p>Hola como estas</p>
-</div>
-<div class="inicio-portada">
-    <div class="row alto100 margin0">
-        <div class="intro">
-            <div class="nube">
-                <center>
-                    <img src="{{asset('img/logo-lasalle.svg')}}" class="logo" width="130" alt="Logo La Salle La Paz">
-                </center>
-            </div>
-            <h1 class="text-center">BLOG</h1>
-            <h2 class="text-center">COLEGIO LA SALLE LA PAZ</h2>
-            <div class="entrar text-center center-block">
-                <a href="#"><img src="{{asset('img/bajar.png')}}" alt="entrar"></a>
+
+<div class="menu visibility fadeInDown wow animated" data-wow-delay=".2s">
+    <div class="row">
+        <div class="col-xs-6 logo">
+            <img src="{{ asset('img/logo-lasalle.svg') }}" width="75" alt="Logo La Salle La Paz">
+        </div>
+        <div class="col-xs-6">
+            <div class="btn-menu text-right  pull-right">
+                <img src="{{ asset('img/menu.svg') }}" width="25" alt="">
             </div>
         </div>
     </div>
 </div>
-<div class="blog margin0">
+<div class="inicio-portada parallax">
+    <div class="row alto100 margin0">
+        <div class="intro">
+            <div class="nube visibility flipInX wow animated" data-wow-delay="1s">
+                <center>
+                    <img src="{{asset('img/logo-lasalle.svg')}}" class="logo" width="130" alt="Logo La Salle La Paz">
+                </center>
+            </div>
+            <h1 class="text-center visibility fadeInUp wow animated" data-wow-delay="1.3s">BLOG</h1>
+            <h2 class="text-center visibility fadeInUp wow animated" data-wow-delay="1.6s">COLEGIO LA SALLE LA PAZ</h2>
+            <div class="entrar text-center center-block visibility fadeInDown wow animated" data-wow-delay="1.6s">
+                <a href="#blog"><img src="{{asset('img/bajar.png')}}" alt="entrar"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="blog margin0" id="blog" >
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-9">
                 {{-- GRID --}}
                  <div id="container-01">
+                    @foreach($articulos as $articulo)
                     <div class="pinto">
-                        <img src="{{asset('recursos/thumb350/ls_recurso_1495312257.JPG')}}" class="img">
+                        <img src="{{asset('img/articulos/thumb350/')}}/{{$articulo->img}}" class="img">
                         <div class="info">
-                            <h2>Logran una forma de reducir tiempo y costos en el análisis del aire</h2>
+                            <h2>{{ $articulo->articulo }}</h2>
                         </div>
                         <div class="opciones">
                             <div class="row">
                                 <div class="col-xs-4">
-                                    <img src="{{asset('img/categorias/biologia.svg')}}" width="18" alt="">
+                                    @foreach($categorias->where('id',$articulo->categoria_id) as $categoria)
+                                    @endforeach
+                                    <img src="{{asset('img/categorias/')}}/{{$categoria->id}}.svg" width="18" alt="{{ucwords($categoria->categoria)}}" title="{{ucwords($categoria->categoria)}}">
                                 </div>
                                 <div class="col-xs-8 text-right">
                                     <img src="{{asset('img/compartir.svg')}}" class="img1" width="14" alt="Comentario"> 
@@ -45,168 +59,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pinto">
-                        <img src="{{asset('recursos/thumb350/ls_recurso_1495256219.JPG')}}" class="img">
-                        <div class="info">
-                            <h2>Logran una forma de reducir tiempo y costos en el análisis del aire</h2>
-                        </div>
-                        <div class="opciones">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <img src="{{asset('img/categorias/matematicas.svg')}}" width="18" alt="">
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <img src="{{asset('img/compartir.svg')}}" class="img1" width="14" alt="Comentario"> 
-                                    <span class="c-silver"> | </span> 
-                                    <img src="{{asset('img/comentario.svg')}}" class="img1" width="15" alt="Comentario"> <span class="font-size12">15</span> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pinto">
-                        <img src="{{asset('recursos/thumb350/ls_recurso_1495312257.JPG')}}" class="img">
-                        <div class="info">
-                            <h2>Logran una forma de reducir tiempo y costos en el análisis del aire</h2>
-                        </div>
-                        <div class="opciones">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <img src="{{asset('img/categorias/biologia.svg')}}" width="18" alt="">
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <img src="{{asset('img/compartir.svg')}}" class="img1" width="14" alt="Comentario"> 
-                                    <span class="c-silver"> | </span> 
-                                    <img src="{{asset('img/comentario.svg')}}" class="img1" width="15" alt="Comentario"> <span class="font-size12">15</span>  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pinto">
-                        <img src="{{asset('recursos/thumb350/ls_recurso_1495256219.JPG')}}" class="img">
-                        <div class="info">
-                            <h2>Logran una forma de reducir tiempo y costos en el análisis del aire</h2>
-                        </div>
-                        <div class="opciones">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <img src="{{asset('img/categorias/matematicas.svg')}}" width="18" alt="">
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <img src="{{asset('img/compartir.svg')}}" class="img1" width="14" alt="Comentario"> 
-                                    <span class="c-silver"> | </span> 
-                                    <img src="{{asset('img/comentario.svg')}}" class="img1" width="15" alt="Comentario"> <span class="font-size12">15</span> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pinto">
-                        <img src="{{asset('recursos/thumb350/ls_recurso_1495312257.JPG')}}" class="img">
-                        <div class="info">
-                            <h2>Logran una forma de reducir tiempo y costos en el análisis del aire</h2>
-                        </div>
-                        <div class="opciones">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <img src="{{asset('img/categorias/biologia.svg')}}" width="18" alt="">
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <img src="{{asset('img/compartir.svg')}}" class="img1" width="14" alt="Comentario"> 
-                                    <span class="c-silver"> | </span> 
-                                    <img src="{{asset('img/comentario.svg')}}" class="img1" width="15" alt="Comentario"> <span class="font-size12">15</span>  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pinto">
-                        <img src="{{asset('recursos/thumb350/ls_recurso_1495256219.JPG')}}" class="img">
-                        <div class="info">
-                            <h2>Logran una forma de reducir tiempo y costos en el análisis del aire</h2>
-                        </div>
-                        <div class="opciones">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <img src="{{asset('img/categorias/matematicas.svg')}}" width="18" alt="">
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <img src="{{asset('img/compartir.svg')}}" class="img1" width="14" alt="Comentario"> 
-                                    <span class="c-silver"> | </span> 
-                                    <img src="{{asset('img/comentario.svg')}}" class="img1" width="15" alt="Comentario"> <span class="font-size12">15</span> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pinto">
-                        <img src="{{asset('recursos/thumb350/ls_recurso_1495312257.JPG')}}" class="img">
-                        <div class="info">
-                            <h2>Logran una forma de reducir tiempo y costos en el análisis del aire</h2>
-                        </div>
-                        <div class="opciones">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <img src="{{asset('img/categorias/biologia.svg')}}" width="18" alt="">
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <img src="{{asset('img/compartir.svg')}}" class="img1" width="14" alt="Comentario"> 
-                                    <span class="c-silver"> | </span> 
-                                    <img src="{{asset('img/comentario.svg')}}" class="img1" width="15" alt="Comentario"> <span class="font-size12">15</span>  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pinto">
-                        <img src="{{asset('recursos/thumb350/ls_recurso_1495256219.JPG')}}" class="img">
-                        <div class="info">
-                            <h2>Logran una forma de reducir tiempo y costos en el análisis del aire</h2>
-                        </div>
-                        <div class="opciones">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <img src="{{asset('img/categorias/matematicas.svg')}}" width="18" alt="">
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <img src="{{asset('img/compartir.svg')}}" class="img1" width="14" alt="Comentario"> 
-                                    <span class="c-silver"> | </span> 
-                                    <img src="{{asset('img/comentario.svg')}}" class="img1" width="15" alt="Comentario"> <span class="font-size12">15</span> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pinto">
-                        <img src="{{asset('recursos/thumb350/ls_recurso_1495312257.JPG')}}" class="img">
-                        <div class="info">
-                            <h2>Logran una forma de reducir tiempo y costos en el análisis del aire</h2>
-                        </div>
-                        <div class="opciones">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <img src="{{asset('img/categorias/biologia.svg')}}" width="18" alt="">
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <img src="{{asset('img/compartir.svg')}}" class="img1" width="14" alt="Comentario"> 
-                                    <span class="c-silver"> | </span> 
-                                    <img src="{{asset('img/comentario.svg')}}" class="img1" width="15" alt="Comentario"> <span class="font-size12">15</span> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pinto">
-                        <img src="{{asset('recursos/thumb350/ls_recurso_1495256219.JPG')}}" class="img">
-                        <div class="info">
-                            <h2>Logran una forma de reducir tiempo y costos en el análisis del aire</h2>
-                        </div>
-                        <div class="opciones">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <img src="{{asset('img/categorias/matematicas.svg')}}" width="18" alt="">
-                                </div>
-                                <div class="col-xs-8 text-right">
-                                    <img src="{{asset('img/compartir.svg')}}" class="img1" width="14" alt="Comentario"> 
-                                    <span class="c-silver"> | </span> 
-                                    <img src="{{asset('img/comentario.svg')}}" class="img1" width="15" alt="Comentario"><span class="font-size12">15</span> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
 
                 </div>
 
@@ -233,28 +86,18 @@
                 </div>
                 <h3>CATEGORIAS</h3>
                 <div class="linea"></div>
+                @foreach($listaCategorias as $listaCategoria)
                 <div class="categorias-inicio margin0">
-                    <img src="{{asset('img/categorias/matematicas.svg')}}" width="18" alt="">
-                    <span class="text-left margin0">MATEMÁTICAS<TICAS></TICAS></span>
-                    <span class="numero-categoria">15</span>
+                    <img src="{{asset('img/categorias/')}}/{{ $listaCategoria->id }}.svg" width="18" alt="{{ $listaCategoria->categoria }}">
+                    <span class="text-left margin0">{{ $listaCategoria->categoria }}<TICAS></TICAS></span>
+                    <span class="numero-categoria">
+                        @foreach($contarArticulos as $contarArticulo)
+                        @endforeach
+                        {{ $contarArticulo->where('categoria_id', $listaCategoria->id)->count() }}
+                    </span>
                 </div>
-                <div class="categorias-inicio margin0">
-                    <img src="{{asset('img/categorias/biologia.svg')}}" width="18" alt="">
-                    <span class="text-left margin0">BIOLOGÍA<TICAS></TICAS></span>
-                    <span class="numero-categoria">12</span>
-                </div>
-                <div class="categorias-inicio margin0">
-                    <img src="{{asset('img/categorias/literatura.svg')}}" width="18" alt="">
-                    <span class="text-left margin0">LITERATURA<TICAS></TICAS></span>
-                    <span class="numero-categoria">21</span>
-                </div>
-                <div class="categorias-inicio margin0">
-                    <img src="{{asset('img/categorias/geografia.svg')}}" width="18" alt="">
-                    <span class="text-left margin0">GEOGRAFÍA<TICAS></TICAS></span>
-                    <span class="numero-categoria">7</span>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
-    
 </div>
