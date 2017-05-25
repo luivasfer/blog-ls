@@ -46,12 +46,16 @@
                     @endforeach
                     
                     <div class="pinto">
-                        {{$categoria->slug}}/{{$articulo->id}}/{{$articulo->slug}}
                         <a href="{{ url('articulo')}}/{{$categoria->slug}}/{{$articulo->id}}/{{$articulo->slug}}">
                             <img src="{{asset('img/articulos/thumb350/')}}/{{$articulo->img}}" class="img">
                         </a>
                         <div class="info">
-                            <h2>{{ $articulo->articulo }}</h2>
+                            <a href="{{ url('articulo')}}/{{$categoria->slug}}/{{$articulo->id}}/{{$articulo->slug}}">
+                                <h2>{{ $articulo->articulo }}</h2>
+                            </a>
+                            <div class="publicado">
+                                <p>Hace un dia <img src="{{asset('img/reloj.svg')}}" width="10" alt="Publicado"></i></p>
+                            </div>
                         </div>
                         <div class="opciones">
                             <div class="row">
