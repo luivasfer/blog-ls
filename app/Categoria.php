@@ -3,12 +3,26 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Categoria extends Model
 {
-    protected $table = "categorias";
+   
+    use Sluggable;
 
-    protected $fillable = ['categoria'];
+    
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'categoria'
+            ]
+        ];
+    }
+
+
+    protected $table = "categorias";
+    protected $fillable = ['categoria', 'slug'];
 
 
     //Relaciones

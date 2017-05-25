@@ -35,20 +35,27 @@
 <div class="blog margin0" id="blog" >
     <div class="container">
         <div class="row">
+           <h4>Articulos Blog La Salle La Paz</h4>
+        </div>
+        <div class="row">
             <div class="col-xs-12 col-sm-9">
                 {{-- GRID --}}
                  <div id="container-01">
                     @foreach($articulos as $articulo)
+                    @foreach($categorias->where('id',$articulo->categoria_id) as $categoria)
+                    @endforeach
+                    
                     <div class="pinto">
-                        <img src="{{asset('img/articulos/thumb350/')}}/{{$articulo->img}}" class="img">
+                        {{$categoria->slug}}/{{$articulo->id}}/{{$articulo->slug}}
+                        <a href="{{ url('articulo')}}/{{$categoria->slug}}/{{$articulo->id}}/{{$articulo->slug}}">
+                            <img src="{{asset('img/articulos/thumb350/')}}/{{$articulo->img}}" class="img">
+                        </a>
                         <div class="info">
                             <h2>{{ $articulo->articulo }}</h2>
                         </div>
                         <div class="opciones">
                             <div class="row">
                                 <div class="col-xs-4">
-                                    @foreach($categorias->where('id',$articulo->categoria_id) as $categoria)
-                                    @endforeach
                                     <img src="{{asset('img/categorias/')}}/{{$categoria->id}}.svg" width="18" alt="{{ucwords($categoria->categoria)}}" title="{{ucwords($categoria->categoria)}}">
                                 </div>
                                 <div class="col-xs-8 text-right">

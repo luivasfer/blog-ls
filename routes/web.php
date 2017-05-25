@@ -15,22 +15,36 @@
 //     return view('welcome');
 // });
 
-
+// FRONTEND
 
 Route::name('frontend.index')
     ->get('/', 'FrontController@index');
 
-//AUTH
-// Authentication Routes...
-    $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
-    $this->post('login', 'Auth\LoginController@login');
-    $this->post('logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::name('frontend.articulo')
+    ->get('articulo/{categoria}/{id}/{slug}', 'FrontController@articulo');
+
+
+
+
+// Route::name('frontend.repuesto')
+//     ->get('repuestos/{marca}/{id}/{slug}', 'FrontController@categoriaProducto');
+
+
+//FIN FROM END
+
+
+// //AUTH
+// // Authentication Routes...
+//     $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+//     $this->post('login', 'Auth\LoginController@login');
+//     $this->post('logout', 'Auth\LoginController@logout')->name('logout');
     
-    // Password Reset Routes...
-    $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-    $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-    $this->post('password/reset', 'Auth\ResetPasswordController@reset');
+//     // Password Reset Routes...
+//     $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+//     $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+//     $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+//     $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
 //Rutass para el admin

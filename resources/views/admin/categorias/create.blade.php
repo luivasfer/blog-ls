@@ -1,7 +1,7 @@
 @extends('admin.template.main')
 @section('titulo', 'Lista de usuarios')
 @section('contenido')
-    {!! Form::open(['route'=>'categorias.store', 'method'=>'POST']) !!}
+    {!! Form::open(['route'=>'categorias.store', 'method'=>'POST', 'files' => false]) !!}
         <div class="form-group">
             {!! Form::label('categoria', 'Categoria (Nombre de la materia)'); !!}
             {!! Form::text('categoria', null, ['class'=>'form-control', 'placeholder' => 'Nombre de Categoria']); !!}

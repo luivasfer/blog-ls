@@ -93,7 +93,7 @@ h3{
 }
 /****--MENU BLOG---*/
 .blog{
-    padding-top: 8em;
+    padding-top: 4em;
 }
 .menu{
     border-bottom: 1px solid #d5d5d5;
@@ -126,7 +126,7 @@ h3{
 /*    --- GRID   ----**/
 #container-01,
 #container-02 {
-    margin:20px auto;
+    margin:10px auto;
     max-width:800px;
 }
 

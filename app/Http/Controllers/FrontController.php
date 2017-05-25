@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 use App\Categoria;
 use App\Articulo;
-use Illuminate\Http\Request;
+use View;
 
 class FrontController extends Controller
 {
@@ -43,69 +44,24 @@ class FrontController extends Controller
         //return view('frontend.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    
+    public function articulo($categoria, $id, $slug )
     {
-        //
-    }
+        // dd($slug);
+        
+        //dd($categorias);
+        $articulos = Articulo::all()->where('id','=',$id);
+        
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        //$categorias = Categoria::all()->where('slug','=',$categoria);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        //dd($articulos);
+        return view('frontend.articulo')
+            //->with('categorias', $categorias)
+            ->with('articulos', $articulos);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        //dd($categoria. "-" . $id . "-". $slug);
+        //return view('frontend.articulos');
     }
 }
