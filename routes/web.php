@@ -90,6 +90,7 @@ Route::prefix('admin')->middleware('auth')->group(function(){
         'uses' => 'RecursosController@destroy',
         'as'   => 'recursos.destroy'
     ]);
+    Route::resource('comentarios', 'ComentariosController');
     
 });
 

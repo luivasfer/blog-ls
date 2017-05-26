@@ -1,10 +1,15 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Nobile:500" rel="stylesheet">
-a:active, a:active * { outline: none !important; -moz-outline-style: none !important; }
+/**/
+@import url('https://fonts.googleapis.com/css?family=Barrio');
+a:active, a:active * { outline: none !important; -moz-outline-style: none !important; text-decoration: none;}
 a:focus, a:focus * { outline: none !important; -moz-outline-style: none !important; }
+a:hover{text-decoration: none;}
+
 
 html, body{
     width: 100%;
+    background-color:white; 
 }
 .inicio-portada{
     background-color:#ad2225; 
@@ -55,42 +60,7 @@ html, body{
 
 /**------- BLOG -------**/
 
-.blog{
-    font-family: 'Nobile', sans-serif;
-    background-color: white;
-}
 
-h3{
-    font-size: 1.2em;
-    margin: 1em 0 .5em 0;
-    padding: 0;
-    font-weight: normal !important;
-    color: #a91c1c;
-}
-.ultimo-articulo{
-    border-bottom:1px dashed #ccc;
-    padding: 0.7em 0;
-    display: flex;
-    flex-direction: column;
-    font-size: 13px;
-    color: #3984B9;
-}
-.ultimo-articulo i{
-    color: silver
-}
-.categorias-inicio{
-    border-bottom:1px dashed #ccc;
-    padding: 0.7em 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 12px;
-    color: #3984B9;
-    text-transform: uppercase;
-}
-.categorias-inicio img{
-    margin-right: 1em;
-}
 /****--MENU BLOG---*/
 .blog{
     padding-top: 4em;
@@ -111,15 +81,7 @@ h3{
     padding-top:.8em;
     padding-left: .8em;
 }
-.numero-categoria{
-    background-color: #dadada;
-    position: absolute;
-    right: 1.1em;
-    padding: .1em .5em 0 .4em;
-    border-radius: 3px;
-    color: white;
-    text-align: center;
-}
+
 .menu .logo{
     padding: .4em 0 0 2em;
 }
@@ -150,6 +112,7 @@ h3{
     padding:1em 15px;
     background-color:#fff;
     position: relative;
+    font-family: 'Ek Mukta', sans-serif;
 }
 
 .pinto .info h2 {
@@ -185,10 +148,104 @@ h3{
 }
 
 
+/**-----------MENU DERECHO -----------*/
+.menu-derecho{
+     font-family: 'Ek Mukta', sans-serif;
+}
+.numero-categoria{
+    background-color: #dadada;
+    position: absolute;
+    right: 1.1em;
+    padding: .1em .5em 0 .4em;
+    border-radius: 3px;
+    color: white;
+    text-align: center;
+}
+.menu-derecho h3{
+    font-size: 1.2em;
+    margin: 1em 0 .5em 0;
+    padding: 0;
+    font-weight: normal !important;
+    color: #a91c1c;
+}
+.menu-derecho .ultimo-articulo{
+    border-bottom:1px dashed #ccc;
+    padding: 0.7em 0;
+    display: flex;
+    flex-direction: column;
+    color: #3984B9;
+    font-size: 1.1em;
+    line-height: 1.1em;
+}
+
+.categorias-inicio{
+    border-bottom:1px dashed #ccc;
+    padding: 0.4em 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #3984B9;
+    text-transform: uppercase;
+    font-size: 1.1em;
+}
+.menu-derecho .categorias-inicio img{
+    margin-right: 1em;
+}
+.menu-derecho .ultimo-articulo{
+    transition: .3s ease;
+}
+.menu-derecho .ultimo-articulo i{
+    color: silver;
+}
+.menu-derecho .ultimo-articulo:hover{
+    border-left: 2px solid #82bae0;
+    transition: .3s ease;
+    padding-left:8px;
+}
+
+
+/*------------  Articulo --------------*/
+.articulo{
+    
+}
+.articulo h1{
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 2.5em;
+    color: black;
+    line-height: 1.2em;
+    margin-bottom: .1em;
+    text-align: justify;
+}
+.articulo .autor{
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 1.2em;
+    font-weight: normal;
+    color: black;
+}
+.articulo hr{
+    margin: 8px 0;
+}
+
+/*----------- CONTENIDO ------------*/
+.contenido{
+    font-family: 'Ek Mukta', sans-serif;
+}
+.contenido h1{
+
+}
+.contenido p{
+    font-size: 1.2em;
+    color: #333;
+}
+
+
 
 /*  ---- COLORES -----*/
 .c-silver{
     color: silver;
+}
+.c-azul{
+    color: #5092C1;
 }
 
 /*AYUDA CLASES*/

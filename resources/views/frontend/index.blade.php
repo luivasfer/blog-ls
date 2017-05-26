@@ -45,7 +45,7 @@
                     @foreach($categorias->where('id',$articulo->categoria_id) as $categoria)
                     @endforeach
                     
-                    <div class="pinto">
+                    <div class="pinto visibility fadeInUp wow animated" data-wow-delay=".6s>
                         <a href="{{ url('articulo')}}/{{$categoria->slug}}/{{$articulo->id}}/{{$articulo->slug}}">
                             <img src="{{asset('img/articulos/thumb350/')}}/{{$articulo->img}}" class="img">
                         </a>
@@ -53,8 +53,10 @@
                             <a href="{{ url('articulo')}}/{{$categoria->slug}}/{{$articulo->id}}/{{$articulo->slug}}">
                                 <h2>{{ $articulo->articulo }}</h2>
                             </a>
-                            <div class="publicado">
-                                <p>Hace un dia <img src="{{asset('img/reloj.svg')}}" width="10" alt="Publicado"></i></p>
+                            <div class="publicado visibility fadeIn wow animated" data-wow-delay="1s">
+                                <p> {{$articulo->created_at->diffForHumans()}}
+                                    <img src="{{asset('img/reloj.svg')}}" width="10" alt="Publicado">
+                                </p>
                             </div>
                         </div>
                         <div class="opciones">
@@ -71,44 +73,10 @@
                         </div>
                     </div>
                     @endforeach
-
                 </div>
-
-
             </div>
-            <div class="col-xs-12 col-sm-3">
-                <h3>ÚLTIMOS ARTÍCULOS</h3>
-                <div class="linea"></div>
-                <div class="ultimo-articulo margin0">
-                    <span class="text-left margin0">14 de marzo, el día del número Pi</span>
-                    <span><i>Matemáticas</i></span>
-                </div>
-                <div class="ultimo-articulo margin0">
-                    <span class="text-left margin0">Logran una forma de reducir tiempo y costos en el análisis del aire</span>
-                    <span><i>Física</i></span>
-                </div>
-                <div class="ultimo-articulo margin0">
-                    <span class="text-left margin0">Ocho escritores para sumergirse en la literatura portuguesa</span>
-                    <span><i>Literatura</i></span>
-                </div>
-                <div class="ultimo-articulo margin0">
-                    <span class="text-left margin0">La apuesta verde de Bioceres</span>
-                    <span><i>Biología</i></span>
-                </div>
-                <h3>CATEGORIAS</h3>
-                <div class="linea"></div>
-                @foreach($listaCategorias as $listaCategoria)
-                <div class="categorias-inicio margin0">
-                    <img src="{{asset('img/categorias/')}}/{{ $listaCategoria->id }}.svg" width="18" alt="{{ $listaCategoria->categoria }}">
-                    <span class="text-left margin0">{{ $listaCategoria->categoria }}<TICAS></TICAS></span>
-                    <span class="numero-categoria">
-                        @foreach($contarArticulos as $contarArticulo)
-                        @endforeach
-                        {{ $contarArticulo->where('categoria_id', $listaCategoria->id)->count() }}
-                    </span>
-                </div>
-                @endforeach
-            </div>
+            {{-- menu derecho --}}
+            @include('frontend.partes.menu-derecho')
         </div>
     </div>
 </div>
