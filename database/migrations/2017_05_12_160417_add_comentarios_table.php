@@ -20,8 +20,8 @@ class AddComentariosTable extends Migration
             $table->integer('articulo_id')->unsigned();
 
             //Relaciones
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('articulo_id')->references('id')->on('articulos');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('articulo_id')->references('id')->on('articulos')->onDelete('cascade');
 
             $table->timestamps();
         });

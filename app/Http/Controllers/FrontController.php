@@ -68,10 +68,12 @@ class FrontController extends Controller
         $users = User::all();
 
         /*COMENTARIOS*/
-        $comentarios = Comentario::all()->where('articulo_id', $id);
+        $comentarios = Comentario::where('articulo_id', $id)->orderBy('id','DESC')->get();
         foreach($comentarios as $comentario){}
 
-        $usuarios = User::all()->where('id', $comentario->user_id);
+        //dd($comentario->user_id);
+
+        $usuarios = User::all();
         $articulos = Articulo::all()->where('id','=',$id);
 
         //$categorias = Categoria::all()->where('slug','=',$categoria);

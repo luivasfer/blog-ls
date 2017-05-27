@@ -67,10 +67,11 @@
                         @endif
                         @yield('contenido')
                     
-                <div class="comentearios">
+                <div class="comentarios">
+                    <center><h4>Añadir Comentario</h4></center>
                     {!! Form::open(['route' => 'comentarios.store', 'method'=>'POST', 'files' => true]) !!}
                         <div class="form-group">
-                            {!! Form::label('comentario', 'Comentario'); !!}
+                            {!! Form::label('comentario', 'Tu Comentario'); !!}
                             {!! Form::textarea('comentario', null, ['class'=>'form-control editor', 'placeholder' => 'comentario', 'rows'=>5]); !!}
                             
                             <input type="hidden" name="a" value="{{$articulo->id}}" id="a">
@@ -79,16 +80,31 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::submit('Crear producto',['class'=>'btn btn-primary']); !!}
+                            {!! Form::submit('Añadir Comentario',['class'=>'btn btn-primary']); !!}
                         </div>
                     {!! Form::close() !!}
                 </div>
-                @foreach($comentarios as $comentario)
-                    @foreach($usuarios as $usuario)
+                <div class="comentarios-usuarios">
+                    @foreach($comentarios as $comentario)
+                    @foreach($usuarios->where('id', $comentario->user_id) as $usuario)
                     @endforeach
-                    <p>{{$comentario->comentario}}</p>
-                    <p>escrito por: {{$usuario->name}} - {{$usuario->nivel}}</p>
-                @endforeach
+                        <div class="usuario">
+                            <div class="datos">
+                                <div class="foto" style="background-image:url('/img/admin/usuarios/thumb150/{{$usuario->foto}}')"></div>
+                                <?php
+                                    $nombre = $usuario->name; 
+                                    $nombre = explode(" ",$nombre);
+                                    $apellido = $usuario->apellido; 
+                                    $apellido = explode(" ",$apellido);
+                                    echo ucwords($nombre[0] . "  " . $apellido[0]); // esto muestra la primera palabra 
+                                ?>
+                            </div>
+                            <p>{{$comentario->comentario}} - {{$usuario->foto}}</p>
+                            <p>escrito por:  - {{$usuario->nivel}}</p>
+                        </div>
+                    @endforeach
+                </div>
+                
 
             </div>
 

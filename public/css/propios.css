@@ -238,6 +238,48 @@ html, body{
     color: #333;
 }
 
+/*----------- Comentarios -------------*/
+.comentarios{
+    font-family: 'Ek Mukta', sans-serif;
+    color: black;
+}
+.comentarios .btn-primary{
+    border-radius: 1.5em;
+}
+
+/**/
+.comentarios-usuarios{
+    border: 5px #55afe0 solid;
+    margin-top:3.5em;
+    padding: 1.5em;
+}
+.comentarios-usuarios .usuario{
+    margin: 1em 0;
+}
+.comentarios-usuarios .usuario .datos{
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    margin: 1em 0 1em 1em;
+    padding: .5em 1em .5em 3.5em;
+    color: black;
+    position: relative;
+    font-weight: bold;
+    
+}
+.comentarios-usuarios .usuario .datos .foto{
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 3px solid white;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: -1em;
+    top: -9px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, .3)
+}
+
 
 
 /*  ---- COLORES -----*/
