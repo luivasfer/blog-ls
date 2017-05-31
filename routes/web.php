@@ -20,9 +20,11 @@
 Route::name('frontend.index')
     ->get('/', 'FrontController@index');
 
-
 Route::name('frontend.articulo')
     ->get('articulo/{categoria}/{id}/{slug}', 'FrontController@articulo');
+
+Route::name('frontend.articulos')
+    ->get('articulos', 'FrontController@articulos');
 
 
 
@@ -50,15 +52,18 @@ Route::name('frontend.articulo')
 //Rutass para el admin
 Route::prefix('admin')->middleware('auth')->group(function(){
    Route::get('/',['as' => 'admin.index', function () {
-        if(Auth::user()->nivel == "admin")
+        if( Auth::user()->nivel == "admin" || Auth::user()->nivel == "profesor")
         {
             return view('admin.index');
         }
         else
         {
-            return redirect('/');
+            echo"
+                <script>
+                    window.history.back(-1);
+                </script>
+            ";
         }
-        //return 'Hello World';
     }]);
     
     Route::resource('usuario', 'UsersController');

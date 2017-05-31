@@ -61,7 +61,7 @@ class ComentariosController extends Controller
         $comentarios->articulo_id = $articulo_id;
         $comentarios->save();
 
-        flash("Se ha insertado a " . $comentarios->comentario . " de forma correcta", "success");
+        flash("Se inserto tu comentario de forma correcta", "success");
         return redirect()->route('frontend.articulo' ,['comentario' => $categoria->slug, 'id' => $articulo->id, 'slug' => $articulo->slug]);
     }
 

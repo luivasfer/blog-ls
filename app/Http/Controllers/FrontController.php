@@ -25,7 +25,15 @@ class FrontController extends Controller
      */
     public function index()
     {
+        return view('frontend.index');
 
+    }
+
+    public function articulos()
+    {
+        //Comentarios
+        $comentarios = Comentario::all();
+        
         //contamos Los articulos en las categprias
         $contarArticulos = Articulo::all();
 
@@ -43,9 +51,9 @@ class FrontController extends Controller
             // });
             //dd($productos->id);
             //$productos->categoria;
-           
 
-        return view('frontend.index')
+        return view('frontend.articulos')
+            ->with('comentarios', $comentarios)
             ->with('articulos', $articulos)
             ->with('categorias', $categorias)
             ->with('listaCategorias', $listaCategorias)
@@ -56,7 +64,6 @@ class FrontController extends Controller
 
         //return view('frontend.index');
     }
-
     
     public function articulo($categoria, $id, $slug )
     {

@@ -8,8 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('css/normalize.css')}}"> --}}
     <link rel="stylesheet" href="{{asset('css/propios.css')}}">
+    <link rel="stylesheet" href="{{asset('plugins/trumbowyg/ui/trumbowyg.min.css')}}">
     
     <link rel="stylesheet" href="{{asset('plugins/chosen/chosen.min.css')}}">
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js') }}"></script>
@@ -25,30 +26,46 @@
     
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/propios.js') }}"></script>
-
-    {{-- scroll --}}
-    
     <script>
         //$( "p" ).addClass( "visibility animated fadeIn wow" );
         new WOW().init();
     </script>
+    <script src="{{ asset('plugins/trumbowyg/trumbowyg.min.js') }}"></script>
+
+    {{-- editor --}}
+    <script src="{{ asset('plugins/trumbowyg/langs/es.min.js') }}"></script>
     <script>
-        (function(){
-            var parallax = document.querySelectorAll(".parallax"),
-                speed = 0.5;
-
-            window.onscroll = function(){
-                [].slice.call(parallax).forEach(function(el,i){
-
-                var windowYOffset = window.pageYOffset,
-                    elBackgrounPos = "0 " + (windowYOffset * speed) + "px";
+        $('.editor').trumbowyg({
+            lang: 'es',
+            btns: [['bold', 'italic'], ['superscript', 'subscript'], ['link'],
+                'btnGrp-justify', 'btnGrp-lists',['horizontalRule']]
+        });
                 
-                el.style.backgroundPosition = elBackgrounPos;
-
-                });
-            };
-        })();
     </script>
+    {{-- para que funcione esta pagina --}}
+    <script>
+        $(function() {
+            window.scrollTo(0, 2);
+        });
+    </script>
+    {{-- scroll --}}
+    {{-- MODAL --}}
+    <script>
+        function testAnim(x) {
+            $('.modal .modal-dialog').attr('class', 'modal-dialog  ' + x + '  animated');
+        };
+        $('#myModal').on('show.bs.modal', function (e) {
+        var anim = $('#entrada').val();
+            testAnim(anim);
+        })
+        $('#myModal').on('hide.bs.modal', function (e) {
+        var anim = $('#salida').val();
+            testAnim(anim);
+        })
+    </script>
+    
+   
+    
     
 </body>
 </html>

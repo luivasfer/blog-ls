@@ -6,7 +6,6 @@ a:active, a:active * { outline: none !important; -moz-outline-style: none !impor
 a:focus, a:focus * { outline: none !important; -moz-outline-style: none !important; }
 a:hover{text-decoration: none;}
 
-
 html, body{
     width: 100%;
     background-color:white; 
@@ -59,12 +58,13 @@ html, body{
 
 
 /**------- BLOG -------**/
-
-
-/****--MENU BLOG---*/
-.blog{
-    padding-top: 4em;
+.breadcrumb{
+    
 }
+.blog{
+    
+}
+/****--MENU BLOG---*/
 .menu{
     border-bottom: 1px solid #d5d5d5;
     position: fixed;
@@ -72,6 +72,24 @@ html, body{
     z-index: 10;
     background: rgba(255, 255, 255, 1);
     height: 50px;
+    top:0px;
+    padding: 0 1em;
+}
+.boton-menu{
+    margin: 0;
+    padding: .5em 1em;
+    color:#3984B9;
+    font-family: 'Ek Mukta', sans-serif;
+}
+
+.img-menu{
+    border-radius: 50%;
+    margin: 0 .5em 0 0;
+    padding: 0;
+    border: 2px white solid;
+}
+.dropdown-toggle{
+    padding: .7em !important;
 }
 .menu .btn-menu{
     border-left: 1px solid #d5d5d5;
@@ -92,6 +110,10 @@ html, body{
     max-width:800px;
 }
 
+.img{
+    width: 100%;
+}
+
 .pinto {
     margin-bottom:15px;
     color:#333;
@@ -100,19 +122,13 @@ html, body{
     border: 1px solid #d5d5d5;
     border-bottom: 6px solid #d5d5d5;
 }
-.pinto .img {
-    display:block;
-    width:100%;
-    border-bottom: 1px solid #d5d5d5;
-}
-.pinto .img1 {
-    margin: 0 .3em;
-}
+
 .pinto .info {
     padding:1em 15px;
     background-color:#fff;
     position: relative;
     font-family: 'Ek Mukta', sans-serif;
+    height: auto;
 }
 
 .pinto .info h2 {
@@ -253,20 +269,41 @@ html, body{
     margin-top:3.5em;
     padding: 1.5em;
 }
+.comentarios-usuarios .numero{
+    font-family: 'Ek Mukta', sans-serif;
+    font-size: 1.4em;
+    color: black;
+    margin: .5em 0 2em 0;
+}
 .comentarios-usuarios .usuario{
-    margin: 1em 0;
+    margin: 2.5em 0 1em 0;
 }
 .comentarios-usuarios .usuario .datos{
     border-top: 1px solid #dbdbdb;
     border-bottom: 1px solid #dbdbdb;
     margin: 1em 0 1em 1em;
     padding: .5em 1em .5em 3.5em;
-    color: black;
+    color: #0986ed;
     position: relative;
-    font-weight: bold;
-    
+    font-weight: bold;   
 }
+.nivel{
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    float: right;
+    margin-top: 6px;
+}
+.comentarios-usuarios .usuario p{
+    color:black;
+    padding-left: 4.5em;
+}
+.comentarios-usuarios .usuario .datos .fecha{
+    font-weight: normal
+}
+
 .comentarios-usuarios .usuario .datos .foto{
+    background-color: white;
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -281,6 +318,11 @@ html, body{
 }
 
 
+/*LOGIN*/
+.modal-content{
+    border-radius: 0;
+}
+
 
 /*  ---- COLORES -----*/
 .c-silver{
@@ -291,6 +333,7 @@ html, body{
 }
 
 /*AYUDA CLASES*/
+
 .alto100{
     height: 100%;
 }
@@ -303,8 +346,11 @@ html, body{
 .padding0{
     padding: 0;
 }
-.margin-top2em{
-    margin-top: 2em;
+.margin-top5em{
+    margin-top: 5em;
+}
+.margin-right1em{
+    margin-right:0.5em; 
 }
 .linea{
     background-color: #e0e0e0;
@@ -318,15 +364,22 @@ html, body{
 .font-size12{
     font-size:12px; 
 }
+.profesor{
+    background: #55afe0;
+}
+.alumno{
+    background: #ffae00;
+}
+
 .visibility{
     visibility:hidden;
 }
-
-
-
-
-
-
+.margin-top5em{
+    margin-top: 5em;
+}
+.cursor{
+    cursor: pointer;
+}
 
 /*!
  * animate.css -http://daneden.me/animate
