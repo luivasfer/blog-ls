@@ -2,39 +2,45 @@
 @section('titulo', 'Crear articulo')
 @section('contenido')
      {!! Form::open(['route' => ['articulos.update', $articulo], 'method'=>'PATCH', 'files' => true]) !!}
-     
-        <div class="form-group">
-            {!! Form::label('articulo', 'Título del Articulo'); !!}
-            {!! Form::text('articulo',  $articulo->articulo, ['class'=>'form-control', 'placeholder' => 'Nombre de Articulo']); !!}
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-9">
+                <div class="form-group">
+                    {!! Form::label('articulo', 'Título del Articulo'); !!}
+                    {!! Form::text('articulo',  $articulo->articulo, ['class'=>'form-control', 'placeholder' => 'Nombre de Articulo']); !!}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <div class="form-group">
+                    {!! Form::label('categoria_id', 'Categoria') !!}
+                    {!! Form::select('categoria_id', $categorias, $articulo->categoria->id, ['class'=>'form-control', 'placeholder'=>'Seleccionar...']) !!}
+                </div>
+            </div>
         </div>
 
-        <div class="form-group">
-            {!! Form::label('categoria_id', 'Categoria') !!}
-            {!! Form::select('categoria_id', $categorias, $articulo->categoria->id, ['class'=>'form-control', 'placeholder'=>'Seleccionar...']) !!}
+        <div class="row">
+            <div class="col-xs-9">
+                <div class="form-group">
+                    {!! Form::label('contenido', 'Contenido'); !!}
+                    {!! Form::textarea('contenido',  $articulo->contenido, ['class'=>'form-control editor ', 'placeholder' => 'Contenido', 'rows'=>5]); !!}
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="form-group">
+                    {!! Form::label('img', 'Imagen'); !!}
+                    {!! Form::file('img',['class'=>'form-control', 'accept'=>'.png, .jpg, .jpeg']); !!}
+                    <br>
+                    <img src="{{asset('img/articulos/thumb150/')}}/{{$articulo->img}}" alt="">
+                </div>
+            </div>
         </div>
 
-        <div class="form-group">
-            {!! Form::label('contenido', 'Contenido'); !!}
-            {!! Form::textarea('contenido',  $articulo->contenido, ['class'=>'form-control editor', 'placeholder' => 'Contenido', 'rows'=>5]); !!}
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('img', 'Imagen'); !!}
-            {!! Form::file('img',['class'=>'form-control', 'accept'=>'.png, .jpg, .jpeg']); !!}
-            <br>
-            <img src="{{asset('img/articulos/thumb150/')}}/{{$articulo->img}}" alt="">
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('tags', 'Tags') !!}
-            {!! Form::select('tags[]', $tags, $my_tags, ['class'=>'form-control select-tag', 'multiple']) !!}
-        </div>
-
+        
         <div class="form-group">
             <a href="{{ route('articulos.index') }}" class="btn btn-primary">
                 <i class="glyphicon glyphicon-hand-left"></i>
             </a>
-            {!! Form::submit('Crear producto',['class'=>'btn btn-primary']); !!}
+            {!! Form::submit('Editar Articulo',['class'=>'btn btn-primary']); !!}
         </div>
      {!! Form::close() !!}
      

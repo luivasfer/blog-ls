@@ -9,6 +9,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">   
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/chosen/chosen.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/template.css')}}">
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Fjalla+One|Ek+Mukta" rel="stylesheet">
+
 </head>
 <body>
     {{-- MENU --}}
@@ -22,7 +26,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Blog</a>
+            <a class="navbar-brand" href="#">Blog Admin</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -97,22 +101,29 @@
             selector: '.editor',
             height: 500,
             theme: 'modern',
+            content_style: "div, p { font-size: 1.2em; font-family: 'Ek Mukta', sans-serif;} h1, h2, h3, h4, h5, h5{color: black !important; font-weight: bold; font-family: 'Fjalla One', sans-serif !important; margin: 10px 0;} h1{ font-size: 20px !important; font-weight: 300 !important;} h2{font-size: 17px !important; font-weight: 300 !important;} h3{ font-size: 17px !important; font-weight: 300 !important;} h4{ font-size: 17px !important; font-weight: 300 !important;} h5{ font-size: 17px !important; font-weight: 300 !important;} h6{ font-size: 17px !important; font-weight: 300 !important;} hr{height:1px; background:#ccc; width:100%}",
             plugins: [
                 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
                 'searchreplace wordcount visualblocks visualchars code fullscreen',
                 'insertdatetime media nonbreaking save table contextmenu directionality',
-                'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help'
+                'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc'
             ],
             toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-            toolbar2: 'print preview media | forecolor backcolor emoticons | codesample help',
+            toolbar2: 'print media | forecolor backcolor emoticons',
             image_advtab: true,
             templates: [
-                { title: 'Test template 1', content: 'Test 1' },
-                { title: 'Test template 2', content: 'Test 2' }
+                
+                { title: 'Ejemplo', url: '/template/simple.html' },
+                { title: 'Test template 2', url: 'Test 2' }
+                //{ title: 'Test template 1', content: 'Test 1' },
+                //{ title: 'Test template 2', content: 'Test 2' }
             ],
+            //fonts.googleapis.com/css?family=Ek+Mukta
             content_css: [
-                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+                '//fonts.googleapis.com/css?family=Fjalla+One',
+                '//fonts.googleapis.com/css?family=Ek+Mukta:200,300,400,500,600,700,800',
                 '//www.tinymce.com/css/codepen.min.css'
+                
             ]
         });
     </script>

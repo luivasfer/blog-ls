@@ -45,14 +45,20 @@
                                     <img src="{{asset('img/categorias/')}}/{{$categoria->id}}.svg" width="18" alt="{{ucwords($categoria->categoria)}}" title="{{ucwords($categoria->categoria)}}">
                                 </div>
                                 <div class="col-xs-8 text-right">
-                                    <img src="{{asset('img/compartir.svg')}}" class="img1" width="14" alt="Comentario"> 
+                                    <img src="{{asset('img/compartir.svg')}}" class="img1 margin-right1em" title="compartir" width="14"  alt="Comentario"> 
                                     <span class="c-silver"> | </span> 
-                                    <img src="{{asset('img/comentario.svg')}}" class="img1" width="15" alt="Comentario">
+                                    <img src="{{asset('img/comentario.svg')}}" title="Comentarios" class="img1 margin-left1em" width="15" alt="Comentario">
                                     
                                     @foreach($comentarios as $comentario)
                                     @endforeach
 
-                                    <span class="font-size12">{{ $comentario->where('articulo_id', $articulo->id)->count() }}</span>      
+                                    <span class="font-size12">
+                                    @if(isset($comentario))
+                                        {{ $comentario->where('articulo_id', $articulo->id)->count() }}
+                                    @else
+                                        0
+                                    @endif
+                                    </span>      
                                 </div>
                             </div>
                         </div>
@@ -64,5 +70,6 @@
             @include('frontend.partes.menu-derecho')
         </div>
     </div>
+    @include('frontend.partes.modal-login')
 </div>
  

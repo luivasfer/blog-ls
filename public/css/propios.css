@@ -2,7 +2,7 @@
 <link href="https://fonts.googleapis.com/css?family=Nobile:500" rel="stylesheet">
 /**/
 @import url('https://fonts.googleapis.com/css?family=Barrio');
-a:active, a:active * { outline: none !important; -moz-outline-style: none !important; text-decoration: none;}
+a:active, a:active * { text-decoration: none; outline: none !important; -moz-outline-style: none !important; text-decoration: none;}
 a:focus, a:focus * { outline: none !important; -moz-outline-style: none !important; }
 a:hover{text-decoration: none;}
 
@@ -89,7 +89,7 @@ html, body{
     border: 2px white solid;
 }
 .dropdown-toggle{
-    padding: .7em !important;
+    padding: 1em !important;
 }
 .menu .btn-menu{
     border-left: 1px solid #d5d5d5;
@@ -137,6 +137,7 @@ html, body{
     font-family: 'Nobile', sans-serif;
     color: #3984B9;
     line-height: 1.3em;
+    font-weight: normal;
 }
 .pinto .info .publicado{
     position: absolute;
@@ -167,6 +168,8 @@ html, body{
 /**-----------MENU DERECHO -----------*/
 .menu-derecho{
      font-family: 'Ek Mukta', sans-serif;
+     border-left: 1px dashed #dbdbdb;
+     padding: 2em auto;
 }
 .numero-categoria{
     background-color: #dadada;
@@ -178,7 +181,7 @@ html, body{
     text-align: center;
 }
 .menu-derecho h3{
-    font-size: 1.2em;
+    font-size: 1.4em;
     margin: 1em 0 .5em 0;
     padding: 0;
     font-weight: normal !important;
@@ -239,16 +242,27 @@ html, body{
     color: black;
 }
 .articulo hr{
-    margin: 8px 0;
+    margin: 1.8em 0;
 }
 
 /*----------- CONTENIDO ------------*/
 .contenido{
     font-family: 'Ek Mukta', sans-serif;
 }
-.contenido h1{
-
+.contenido h1, h2, h3, h4, h5, h5{
+    
+    color: black; 
+    font-weight: bold; 
+    font-family: 'Fjalla One', sans-serif;
+    margin: 1.2em 0;
 }
+.contenido h1{ font-size: 20px !important; font-weight: 200 !important;}
+.contenido h2{ font-size: 17px !important; font-weight: 200 !important;}
+.contenido h3{ font-size: 17px !important; font-weight: 200 !important;}
+.contenido h4{ font-size: 17px !important; font-weight: 200 !important;}
+.contenido h5{ font-size: 17px !important; font-weight: 200 !important;}
+.contenido h6{ font-size: 17px !important; font-weight: 200 !important;}
+
 .contenido p{
     font-size: 1.2em;
     color: #333;
@@ -258,16 +272,25 @@ html, body{
 .comentarios{
     font-family: 'Ek Mukta', sans-serif;
     color: black;
+    margin-top:4em;
 }
 .comentarios .btn-primary{
     border-radius: 1.5em;
 }
-
+.comentarios h3{
+    font-weight: normal;
+    color:#a91c1c;
+}
 /**/
 .comentarios-usuarios{
     border: 5px #55afe0 solid;
     margin-top:3.5em;
     padding: 1.5em;
+}
+.contenido-profe{
+    font-family: 'Ek Mukta', sans-serif;
+    color: red !important; 
+    border: 1px solid blue;
 }
 .comentarios-usuarios .numero{
     font-family: 'Ek Mukta', sans-serif;
@@ -318,10 +341,12 @@ html, body{
 }
 
 
+
 /*LOGIN*/
 .modal-content{
     border-radius: 0;
 }
+
 
 
 /*  ---- COLORES -----*/
@@ -351,6 +376,9 @@ html, body{
 }
 .margin-right1em{
     margin-right:0.5em; 
+}
+.margin-left1em{
+    margin-left:0.5em; 
 }
 .linea{
     background-color: #e0e0e0;
