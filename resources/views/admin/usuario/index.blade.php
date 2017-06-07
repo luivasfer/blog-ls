@@ -47,7 +47,15 @@
                                     <span class="label label-default">{!! $user->nivel !!}</span>
                                 @endif
                             </td>
-                            <td><td>{{ $user->estado}}</td></td>
+                            
+                            <td>
+                                @if($user->estado == 1)
+                                    Activado
+                                @else
+                                    Bloqueado
+                                @endif
+                                
+                            </td>
                             <td>
                                 <a href="{{ route('usuario.edit', $user->id) }}" class="btn btn-success btn-sm">
                                     <i class="glyphicon glyphicon-edit"></i>

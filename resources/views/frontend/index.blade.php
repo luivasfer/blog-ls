@@ -28,7 +28,7 @@
             <h1 class="text-center visibility fadeInUp wow animated" data-wow-delay="1.3s">BLOG</h1>
             <h2 class="text-center visibility fadeInUp wow animated" data-wow-delay="1.6s">COLEGIO LA SALLE LA PAZ</h2>
             <div class="entrar text-center center-block visibility fadeInDown wow animated" data-wow-delay="1.6s">
-                <a href="{{route('frontend.articulos')}}"><img src="{{asset('img/bajar.png')}}" alt="entrar"></a>
+                <a href="{{route('frontend.articulos')}}"><img src="{{asset('img/enter.svg')}}" alt="entrar" title="entrar" width="30"></a>
             </div>
         </div>
     </div>

@@ -7,6 +7,7 @@ use App\User;
 use App\Comentario;
 use App\Categoria;
 use App\Articulo;
+use App\Http\Requests\ComentarioRequest;
 
 class ComentariosController extends Controller
 {
@@ -36,7 +37,7 @@ class ComentariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ComentarioRequest $request)
     {
         $articulo_id = $request->a;
         $user_id = $request->u;

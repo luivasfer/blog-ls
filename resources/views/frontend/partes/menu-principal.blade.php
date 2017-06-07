@@ -1,4 +1,4 @@
-<div class="menu visibility fadeIn animated wow">
+<div class="menu visibility fadeInDown animated wow">
         <div class="row">
             <div class="col-xs-6 logo">
                 <a href="{{ route('frontend.index') }}">
