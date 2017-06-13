@@ -23,10 +23,8 @@
                     @foreach($articulos as $articulo)
                     @foreach($categorias->where('id',$articulo->categoria_id) as $categoria)
                     @endforeach
-                    
                     <div class="pinto visibility fadeIn animated wow" data-wow-delay="1s">
                         <a href="{{ url('articulo')}}/{{$categoria->slug}}/{{$articulo->id}}/{{$articulo->slug}}">
-                            
                             <img src="{{asset('img/articulos/thumb350/')}}/{{$articulo->img}}" class="img">
                         </a>
                         <div class="info">
@@ -72,4 +70,5 @@
     </div>
     @include('frontend.partes.modal-login')
 </div>
+@endsection
  
