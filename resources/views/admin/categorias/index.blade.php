@@ -11,6 +11,7 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th></th>
                 <th>Categoria</th>
                 <th>Acciones</th>
             </tr>
@@ -19,6 +20,7 @@
             @foreach($categorias as $categoria)
             <tr>
                 <td>{{ $categoria->id}}</td>
+                <td><img src="{{ asset('img/categorias')}}/{{$categoria->id}}.svg" width="20" alt="{{$categoria->categoria}}"></td>
                 <td>{{ ucwords($categoria->categoria) }}</td>
                 <td>
                      <a href="{{ route('categorias.edit', $categoria->id) }}" class="btn btn-success btn-sm">
