@@ -82,8 +82,17 @@
     </div>
     
     
+
     {{-- SCRIPTS --}}
     <script src="{{ asset('js/app.js') }}"></script>
+     {{-- ALERTIFY --}}
+    <script src="{{ asset('js/alert.js') }}"></script>
+    <script>
+        $('.alerta').click(function(){
+            $.notify("Enlace copiado","success");
+        })
+            
+    </script>
     {{-- TAGS CHOSEN --}}
     <script src="{{ asset('plugins/chosen/chosen.jquery.min.js') }}"></script>
     <script>
@@ -177,6 +186,7 @@
             $temp.remove();
         }
     </script>
+   
 
         
 </body>

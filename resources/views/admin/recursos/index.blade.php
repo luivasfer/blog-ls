@@ -1,22 +1,13 @@
 @extends('admin.template.main')
 @section('titulo', 'Lista de recursos')
 @section('contenido')
-            <div class="col-xs-6">
+            <div class="col-xs-12">
                 <a href="{{route('recursos.create')}}" class="btn btn-info">
                     <i class="glyphicon glyphicon-plus-sign"></i>
                 Insertar recurso
                 </a>
             </div>
-            <div class="col-xs-6">
-                <form class="navbar-form navbar-left  pull-right" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default glyphicon glyphicon-search"></button>
-                </form>
-            </div>
             <div class="col-xs-12">
-                
                 <hr>
             <div class="table-responsive">
                 <table class="table table-hover">
@@ -36,9 +27,9 @@
                         <tr>
                             <td>{{ $recurso->id}}</td>
                             <td width="100">
-                                
-                                    <span style="cursor:pointer" onclick="copyToClipboard('#p{{ $recurso->id }}')"><img src="{{ asset('recursos/copiar.svg')}}" width="18" alt="Copiar Link" title="Copiar recurso"></span>
-                                    <p id="p{{ $recurso->id }}" style="display:none">{{ asset('recursos/original/')}}/{{$recurso->archivo}}</p>
+                                <span class="alerta" style="cursor:pointer" onclick="copyToClipboard('#p{{ $recurso->id }}')"><img src="{{ asset('recursos/copiar.svg')}}" width="18" alt="Copiar Link" title="Copiar recurso">
+                                </span>
+                                <p id="p{{ $recurso->id }}" style="display:none">{{ asset('recursos/original/')}}/{{$recurso->archivo}}</p>
                                 
                             </td>
                            

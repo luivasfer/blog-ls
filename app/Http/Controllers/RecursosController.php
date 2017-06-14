@@ -18,7 +18,13 @@ class RecursosController extends Controller
      */
     public function index()
     {
-        $recursos = Recurso::orderBy('id','DESC')->paginate(20);
+        $usuario = auth()->user()->id;
+        if($usuario == 1){
+            $recursos = Recurso::orderBy('id','DESC')->paginate(20);
+        }else{
+            $recursos = Recurso::where('user_id', $usuario)->orderBy('id','DESC')->paginate(20);
+        }
+        
         return view('admin.recursos.index')
             ->with('recursos', $recursos);
     }

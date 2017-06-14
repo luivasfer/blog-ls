@@ -22,7 +22,14 @@ class ArticulosController extends Controller
     public function index()
     {
         //$productos = Articulo::buscador($request->articulo)->orderBy('id','DESC')->paginate(20);
-        $articulos = Articulo::orderBy('id','DESC')->paginate(20);
+        $usuario = auth()->user()->id;
+        if($usuario == 1){
+            $articulos = Articulo::orderBy('id','DESC')->paginate(20);
+        }else{
+            $articulos = Articulo::where('user_id', $usuario)->orderBy('id','DESC')->paginate(20);
+        }
+        
+        
         $recursos = Recurso::all();
         $articulos->each(function($articulos){
             $articulos->categoria;
