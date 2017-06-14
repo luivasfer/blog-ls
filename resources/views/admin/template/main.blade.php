@@ -89,7 +89,7 @@
     <script src="{{ asset('js/alert.js') }}"></script>
     <script>
         $('.alerta').click(function(){
-            $.notify("Enlace copiado","success");
+            $.notify("Enlace copiado","info");
         })
             
     </script>

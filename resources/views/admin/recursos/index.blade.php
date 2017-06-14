@@ -37,13 +37,25 @@
                                 <?php $extension = strtolower($recurso->tipo); ?>
                                 @if(($extension == 'jpg') || ($extension == 'jpeg') || ($extension == 'png') || ($extension == 'gif'))
                                     <img src="{{ asset('recursos/img.svg')}}" height="20" alt="{{ $recurso->recurso }}">
-                                    <a href="#" class="screenshot" rel="{{ asset('recursos/thumb150/')}}/{{$recurso->archivo }}">{{ ucwords($recurso->recurso)}}</a>
+                                    <a href="" class="screenshot" rel="{{ asset('recursos/thumb150/')}}/{{$recurso->archivo }}">{{ ucwords($recurso->recurso)}}</a>
                                 @else
                                     <img src="{{ asset('recursos/pdf.png')}}" height="20" alt="{{ $recurso->recurso }}">
                                     <a href="{{ asset('recursos/original/')}}/{{$recurso->archivo}}" target="_blank">{{ ucwords($recurso->recurso)}}</a>
                                 @endif
                             </td>
-                            <td>{{ $recurso->user->name}}</td>
+                            
+                            <td>
+
+                                
+
+                                <?php
+                                    $nombre = $recurso->user->name; 
+                                    $nombre = explode(" ",$nombre);
+                                    $apellido = $recurso->user->apellido; 
+                                    $apellido = explode(" ",$apellido);
+                                    echo ucwords($apellido[0] . "  " . $nombre[0]); // esto muestra la primera palabra 
+                                ?>
+                            </td>
                             
                             <td>
                                 <a href="{{ route('recursos.destroy', $recurso->id) }}" title="Eliminar" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que de seas eliminarlo?')">

@@ -7,3 +7,12 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+/*PROPIOS*/
+ #screenshot{
+	position:absolute;
+	border:1px solid #ededed;
+	background:#fff;
+	padding:4px;
+	display:none;
+}
