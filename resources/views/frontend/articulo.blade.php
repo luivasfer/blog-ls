@@ -98,14 +98,22 @@
                         <p>Se el primero en comentar...</p> 
                     @endif
                     
-                    
-
                     @foreach($comentarios as $comentario)
                         @foreach($usuarios->where('id', $comentario->user_id) as $usuario)
                         @endforeach
                             <div class="usuario">
                                 <div class="datos">
-                                    <div class="foto" style="background-image:url('/img/admin/usuarios/thumb150/{{$usuario->foto}}')"></div>
+
+                                    @if($usuario->foto)
+                                        <div class="foto" style="background-image:url('/img/admin/usuarios/thumb150/{{$usuario->foto}}')"></div>
+                                    @else
+                                        @if($usuario->sexo == 'm')
+                                            <div class="foto" style="background-image:url('/img/masculino.png')"></div>
+                                        @else
+                                            <div class="foto" style="background-image:url('/img/femenino.png')"></div>
+                                        @endif    
+                                    @endif
+
                                     <?php
                                         $nombre = $usuario->name; 
                                         $nombre = explode(" ",$nombre);

@@ -45,9 +45,6 @@
                             </td>
                             
                             <td>
-
-                                
-
                                 <?php
                                     $nombre = $recurso->user->name; 
                                     $nombre = explode(" ",$nombre);

@@ -11,7 +11,18 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         {{-- Si esta logueado --}}
                         @if(isset(Auth::user()->id))
-                        <img src="{{ asset('img/admin/usuarios')}}/{{Auth::user()->foto}}" width="28" alt="{{ ucfirst(Auth::user()->name) }}" class="img-menu">
+
+                            @if(isset(Auth::user()->foto))
+                                <img src="{{ asset('img/admin/usuarios/thumb150/')}}/{{Auth::user()->foto}}" width="28" alt="" class="img-menu">
+                            @else
+                                @if(Auth::user()->sexo == 'm')
+                                    <img src="{{asset('img/masculino.png')}}" alt="masculino" width="28" class="img-menu">
+                                @else
+                                    <img src="{{asset('img/femenino.png')}}" alt="femenino" width="28" class="img-menu">
+                                @endif    
+                            @endif
+                        
+                        {{-- <img src="{{ asset('img/admin/usuarios')}}/{{Auth::user()->foto}}" width="28" alt="{{ ucfirst(Auth::user()->name) }}" class="img-menu"> --}}
                         {{-- ucfirst(Auth::user()->name) --}}
                         @endif
                         <img src="{{ asset('img/menu-puntos.svg') }}" width="20" alt="menu">

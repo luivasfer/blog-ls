@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/chosen/chosen.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/template.css')}}">
-
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Fjalla+One|Ek+Mukta" rel="stylesheet">
 
 </head>
@@ -26,26 +25,40 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Blog Admin</a>
+            {{-- <a class="navbar-brand" href="#">
+                <img src="{{asset('img/logo-lasalle.svg')}}" width="60" alt="Logo La Salle">
+            </a> --}}
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="#">Inicio <span class="sr-only">(current)</span></a></li>
+                <li><a href="{{ route('admin.index') }}">Inicio <span class="sr-only">(current)</span></a></li>
                 {{-- <li class="active"><a href="#">Inicio <span class="sr-only">(current)</span></a></li> --}}
+                @if(Auth::user()->id == 1)
                 <li><a href="{{ route('usuario.index') }}">Usuarios</a></li>
                 <li><a href="{{ route('categorias.index') }}">Categorias</a></li>
+                @endif
                 <li><a href="{{ route('articulos.index') }}">Articulos</a></li>
                 <li><a href="{{ route('recursos.index') }}">Recursos</a></li>
+                @if(Auth::user()->id == 1)
                 <li><a href="{{ route('tags.index') }}">Tags</a></li>
                 <li><a href="#">Comentarios</a></li>
+                @endif
             </ul>
            
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{ Auth::user()->name }} <span class="caret"></span>
+                        <?php
+                            $nombre = Auth::user()->name; 
+                            $nombre = explode(" ",$nombre);
+                            $apellido = Auth::user()->apellido; 
+                            $apellido = explode(" ",$apellido);
+                            echo ucwords($nombre[0] . "  " . $apellido[0]); 
+                        ?>
+
+                        <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
@@ -57,6 +70,9 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>
+                        </li>
+                        <li>
+                            <a href="{{ route('usuario.index') }}"> Perfil</a>
                         </li>
                     </ul>
                 </li>
@@ -186,7 +202,40 @@
             $temp.remove();
         }
     </script>
-   
+    
+    <script src="{{asset('js/tabla.js')}}"></script>
+    <script 
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                "ordering": true,
+                "language": {
+                    "sProcessing":     "Procesando...",
+                    "sLengthMenu":     "Mostrar _MENU_ registros",
+                    "sZeroRecords":    "No se encontraron resultados",
+                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                    "sInfo":           "Registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty":      "Registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix":    "",
+                    "sSearch":         "Buscar:",
+                    "sUrl":            "",
+                    "sInfoThousands":  ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst":    "Primero",
+                        "sLast":     "Último",
+                        "sNext":     "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+            } );
+        } );
+    </script>
 
         
 </body>
