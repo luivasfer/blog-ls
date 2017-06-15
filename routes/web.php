@@ -51,51 +51,43 @@ Route::name('frontend.articulos')
 
 //Rutass para el admin
 Route::prefix('admin')->middleware('auth')->group(function(){
-   Route::get('/',['as' => 'admin.index', function () {
-        if( Auth::user()->nivel == "admin" || Auth::user()->nivel == "profesor")
-        {
-            return view('admin.index');
-        }
-        else
-        {
-            echo"
-                <script>
-                    window.history.back(-1);
-                </script>
-            ";
-        }
+    Route::get('/',['middleware' => 'nivel','as' => 'admin.index', function () {
+        return view('admin.index');
     }]);
+
+    //Route::name('usuario.index')
+      //  ->get('usuario','UsersController@index');
     
-    Route::resource('usuario', 'UsersController');
+    Route::resource('usuario', 'UsersController', ['middleware' => 'nivel']);
     Route::get('usuario/{id}/destroy',[
         'uses' => 'UsersController@destroy',
         'as'   => 'usuario.destroy'
     ]);
 
-    Route::resource('categorias', 'CategoriasController');
+    Route::resource('categorias', 'CategoriasController', ['middleware' => 'nivel']);
     Route::get('categorias/{id}/destroy',[
         'uses' => 'CategoriasController@destroy',
         'as'   => 'categorias.destroy'
     ]);
 
-    Route::resource('tags', 'TagsController');
+    Route::resource('tags', 'TagsController', ['middleware' => 'nivel']);
     Route::get('tags/{id}/destroy',[
         'uses' => 'TagsController@destroy',
         'as'   => 'tags.destroy'
     ]);
 
-    Route::resource('articulos', 'ArticulosController');
+    Route::resource('articulos', 'ArticulosController', ['middleware' => 'nivel']);
     Route::get('articulos/{id}/destroy',[
         'uses' => 'ArticulosController@destroy',
         'as'   => 'articulos.destroy'
     ]);
 
-    Route::resource('recursos', 'RecursosController');
+    Route::resource('recursos', 'RecursosController', ['middleware' => 'nivel']);
     Route::get('recursos/{id}/destroy',[
         'uses' => 'RecursosController@destroy',
         'as'   => 'recursos.destroy'
     ]);
-    Route::resource('comentarios', 'ComentariosController');
+    Route::resource('comentarios', 'ComentariosController', ['middleware' => 'nivel']);
     
 });
 

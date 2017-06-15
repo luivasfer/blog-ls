@@ -21,24 +21,26 @@ class ArticulosController extends Controller
      */
     public function index()
     {
+       
         //$productos = Articulo::buscador($request->articulo)->orderBy('id','DESC')->paginate(20);
-        $usuario = auth()->user()->id;
-        if($usuario == 1){
-            $articulos = Articulo::orderBy('id','DESC')->paginate(20);
-        }else{
-            $articulos = Articulo::where('user_id', $usuario)->orderBy('id','DESC')->paginate(20);
-        }
-        
-        
-        $recursos = Recurso::all();
-        $articulos->each(function($articulos){
-            $articulos->categoria;
-            $articulos->user;
-        });
+            $usuario = auth()->user()->id;
+            if($usuario == 1){
+                $articulos = Articulo::orderBy('id','DESC')->paginate(20);
+            }else{
+                $articulos = Articulo::where('user_id', $usuario)->orderBy('id','DESC')->paginate(20);
+            }
+            
+            
+            $recursos = Recurso::all();
+            $articulos->each(function($articulos){
+                $articulos->categoria;
+                $articulos->user;
+            });
 
-        return view('admin.articulos.index')
-            ->with('recursos', $recursos)
-            ->with('articulos', $articulos);
+            return view('admin.articulos.index')
+                ->with('recursos', $recursos)
+                ->with('articulos', $articulos);
+       
     }
 
     /**
@@ -48,12 +50,21 @@ class ArticulosController extends Controller
      */
     public function create()
     {
-        $categorias = Categoria::orderBy('categoria', 'ASC')->pluck('categoria', 'id');
-        $tags = Tag::orderBy('tag', 'ASC')->pluck('tag', 'id');
+        if(\Auth::user()->nivel == "admin" || \Auth::user()->nivel == "profesor")
+        {
+            $categorias = Categoria::orderBy('categoria', 'ASC')->pluck('categoria', 'id');
+            $tags = Tag::orderBy('tag', 'ASC')->pluck('tag', 'id');
 
-        return view('admin.articulos.create')
-            ->with('categorias', $categorias)
-            ->with('tags', $tags);
+            return view('admin.articulos.create')
+                ->with('categorias', $categorias)
+                ->with('tags', $tags);
+        }else{
+            echo"
+                <script>
+                    window.history.back(-1);
+                </script>
+            ";
+        }
     }
 
     /**
