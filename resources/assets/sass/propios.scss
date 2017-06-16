@@ -7,6 +7,7 @@ a:hover{text-decoration: none;}
 
 html, body{
     width: 100%;
+    height: 100%;
     background-color:white; 
 }
 .inicio-portada{
@@ -467,7 +468,151 @@ footer{
     font-family: 'Ek Mukta', sans-serif;
     border-top:2px solid #dedede;
 }
+.fondo-login{
+    background-image: url('/img/fondo-login.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    .login-caja{
+        min-width: 340px;
+        max-width: 360px;
+        width: 100%;
+        .titulo{
+            font-family: 'Lobster', cursive;
+            font-size: 2em;
+            text-align: center;
+            color: #2778C4;
+            margin-bottom: 0.5em;
+        }
+        .linea-login{
+            width: 100%;
+            font-family: 'Ek Mukta', sans-serif;
+        }
+        .form{
+            width: 100%;
+            margin-top: 3em;
+            font-family: 'Ek Mukta', sans-serif;
+            font-size: 1.2em;
+            .error{
+                font-family: 'Ek Mukta', sans-serif;
+                font-size: 1em;
+                color: red;
+                font-weight: normal !important;
+                margin: .5em 0;
+            }
+            .input{
+                width: 100%;
+                border:1px solid #dedede;
+                padding: .8em 1.4em;
+                margin-bottom: .5em;
+                font-family: 'Ek Mukta', sans-serif;
+                transition: .5s ease;
+            }
+            input:-webkit-autofill{
+                -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+            }
+            .input:focus{
+                outline:0px;
+                border-top:0;
+                border-left:0;
+                border-right:0;
+                border-bottom:2px solid #2778C4;
+                transition: .5s ease;
+            }
+            .checkbox-info:focus{
+                outline:0px !important;
+            }
+            .btn-login{
+                width: 100%;
+                padding: .8em 1.4em;
+                margin-bottom: .5em;
+                font-family: 'Ek Mukta', sans-serif;
+                
+                text-align: center;
+                background: #2778C4;
+                border:0;
+                color: white;
+                border-radius: 3px;
+                transition: .5s ease;
+            }
+            .btn-login:hover{
+                background: #1e5799; /* Old browsers */
+                transition: .5s ease;                
+            }
+            .recuperar{
+                text-align: center;
+                a, a:visited, a:link, a:hover{
+                    font-family: 'Ek Mukta', sans-serif;
+                    font-size: 1em !important;
+                    color: #0E1E5C;
+                    text-shadow: 0 2px 0 rgba(255, 255, 255, 1);
+                }
+            }
+        }
+    }
+}
 
+.checkbox {
+  padding-left: 20px; }
+  .checkbox label {
+    display: inline-block;
+    position: relative;
+    padding-left: 5px; }
+    .checkbox label::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      width: 17px;
+      height: 17px;
+      left: 0;
+      margin-left: -20px;
+      border: 1px solid #cccccc;
+      border-radius: 3px;
+      background-color: #fff;
+      -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+      -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+      transition: border 0.15s ease-in-out, color 0.15s ease-in-out; }
+    .checkbox label::after {
+      display: inline-block;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      left: 0;
+      top: 0;
+      margin-left: -20px;
+      padding-left: 3px;
+      padding-top: 1px;
+      font-size: 11px;
+      color: #555555; }
+  .checkbox input[type="checkbox"] {
+    opacity: 0; }
+    .checkbox input[type="checkbox"]:focus + label::before {
+      outline: thin dotted;
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px; }
+    .checkbox input[type="checkbox"]:checked + label::after {
+      font-family: 'FontAwesome';
+      content: "\f00c"; }
+    .checkbox input[type="checkbox"]:disabled + label {
+      opacity: 0.65; }
+      .checkbox input[type="checkbox"]:disabled + label::before {
+        background-color: #eeeeee;
+        cursor: not-allowed; }
+  .checkbox.checkbox-circle label::before {
+    border-radius: 50%; }
+  .checkbox.checkbox-inline {
+    margin-top: 0; }
+
+.checkbox-info input[type="checkbox"]:checked + label::before {
+  background-color: #5bc0de;
+  border-color: #5bc0de; }
+.checkbox-info input[type="checkbox"]:checked + label::after {
+  color: #fff; }
 
 
 /*LOGIN*/
@@ -477,12 +622,19 @@ footer{
 
 
 
+
 /*  ---- COLORES -----*/
 .c-silver{
     color: silver;
 }
 .c-azul{
     color: #5092C1;
+}
+.c-negro{
+    color: black;
+}
+.c-rojo{
+    color: #e83e3e;
 }
 
 /*AYUDA CLASES*/
