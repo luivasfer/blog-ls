@@ -14,7 +14,7 @@
     
     <link rel="stylesheet" href="{{asset('plugins/chosen/chosen.min.css')}}">
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js') }}"></script>
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Fjalla+One|Ek+Mukta" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Fjalla+One|Ek+Mukta|Lobster" rel="stylesheet">
 </head>
 <body>
     <!-- [if lt IE 9]>
@@ -80,7 +80,14 @@
             $("table").addClass("table table-striped table-hover");
         });
     </script>
-    
+    {{-- MENU  --}}
+    <script>
+        $(document).ready(function(){ 
+            $('.menu-caja').on('click',function(){
+                $('.opciones-menu-principal').toggle('slow').animate({right: '22px'});
+            });
+        })
+    </script>
    
     
     

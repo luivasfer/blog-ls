@@ -1,56 +1,90 @@
-<div class="menu visibility fadeInDown animated wow">
-        <div class="row">
-            <div class="col-xs-6 logo">
-                <a href="{{ route('frontend.index') }}">
-                    <img src="{{ asset('img/logo-lasalle.svg') }}" width="75" alt="Logo La Salle La Paz">
-                </a>
-            </div>
-            <div class="col-xs-6 text-right">
-                <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{-- Si esta logueado --}}
-                        @if(isset(Auth::user()->id))
-
-                            @if(isset(Auth::user()->foto))
-                                <img src="{{ asset('img/admin/usuarios/thumb150/')}}/{{Auth::user()->foto}}" width="28" alt="" class="img-menu">
-                            @else
-                                @if(Auth::user()->sexo == 'm')
-                                    <img src="{{asset('img/masculino.png')}}" alt="masculino" width="28" class="img-menu">
-                                @else
-                                    <img src="{{asset('img/femenino.png')}}" alt="femenino" width="28" class="img-menu">
-                                @endif    
-                            @endif
-                        
-                        {{-- <img src="{{ asset('img/admin/usuarios')}}/{{Auth::user()->foto}}" width="28" alt="{{ ucfirst(Auth::user()->name) }}" class="img-menu"> --}}
-                        {{-- ucfirst(Auth::user()->name) --}}
-                        @endif
-                        <img src="{{ asset('img/menu-puntos.svg') }}" width="20" alt="menu">
-                        {{-- <span class="caret"></span> --}}
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            @if(isset(Auth::user()->id))
-                                <a href="{{ route('admin.index') }}">
-                                        <p class="boton-menu"><i class="glyphicon glyphicon-cog c-azul margin-right1em"></i> Configurar </p>
+<div class="menu-principal animated fadeInDown">
+    <div class="row margin0 padding0">
+        <div class="col-xs-12 padding0">
+            @if(isset(Auth::user()->id))
+                {{-- preguntamos si hay sesion --}}
+                    @if((Auth::user()->nivel == "admin") != (Auth::user()->nivel == "profesor"))
+                        <div class="usuario" style="background-image: url(img/admin/usuarios/thumb150/{{Auth::user()->foto}})">
+                        </div>
+                        <div class="menu-caja">
+                            <div class="linea"></div>
+                            <div class="linea"></div>
+                            <div class="linea"></div>
+                        </div>
+                        <div class="opciones-menu-principal" style="display:none">
+                            <ul>
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                        <div class="linea"></div>
+                                        <img src="{{asset('img/candado-abierto.svg')}}" alt="Cerrar Sesión" width="12"> Cerrar Sesión
                                     </a>
-                                <a href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                     <p class="boton-menu"><i class="glyphicon glyphicon-log-in c-azul margin-right1em"></i> Cerrar Sesion </p>
-                                </a>
-                            @else
-                                <div data-toggle="modal" data-target="#myModal" class="cursor">
-                                    <p class="boton-menu"><i class="glyphicon glyphicon-log-in c-azul margin-right1em"></i> Iniciar Sesión </p>
-                                </div>
-                            @endif
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.index') }}">
+                                        <div class="linea animated fadeInUp"></div>
+                                        <img src="{{asset('img/admin.svg')}}" alt="Cerrar Sesión" width="12"> Administración
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    
+                    @else
+                        <div class="usuario" style="background-image: url(img/admin/usuarios/thumb150/{{Auth::user()->foto}})">
+                        </div>
+                        <div class="menu-caja">
+                            <div class="linea"></div>
+                            <div class="linea"></div>
+                            <div class="linea"></div>
+                        </div>
+                        <div class="opciones-menu-principal" style="display:none">
+                            <ul>
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                        <div class="linea"></div>
+                                        <img src="{{asset('img/candado-abierto.svg')}}" alt="Cerrar Sesión" width="12"> Cerrar Sesión
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.index') }}">
+                                        <div class="linea animated fadeInUp"></div>
+                                        <img src="{{asset('img/usuario.svg')}}" alt="Cerrar Sesión" width="12"> Perfil
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    @endif
+                {{-- fin preguntamos si hay sesion --}}
+            @else
+                <div class="menu-caja">
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                </div>
+                <div class="opciones-menu-principal" style="display:none">
+                    <ul>
+                        <li>
+                            <a href="{{ route('login') }}">
+                                <div class="linea animated fadeInUp"></div>
+                                <img src="{{asset('img/candado-cerrado.svg')}}" alt="Iniciar Sesión" width="12"> Iniciar Sesióon
+                            </a>
                         </li>
                     </ul>
-                </li>
-            </ul>
+                </div>
+            @endif
+            <div class="logo text-center">
+                <img src="{{asset('img/logo-lasalle.svg')}}" width="70px" alt="Logo La Salle La Paz" class="visibility fadeIn animated wow">
+            </div>
+            <div class="titulo">
+                Blog La Salle La Paz
             </div>
         </div>
     </div>
+</div>
