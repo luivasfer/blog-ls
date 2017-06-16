@@ -1,6 +1,6 @@
 @extends('frontend.template.main')
 
-@section ('titulo', 'Login')
+@section ('titulo', 'Login Bolg')
 @section('contenido')
     @include('frontend.partes.menu-principal')
     <div class="fondo-login">
@@ -20,6 +20,9 @@
                 </div>
             </div>
             <div class="form">
+                <div class="recuperar-pass">
+                    <h5>Login</h5>
+                </div>
                 <form role="form" method="POST" action="{{ route('login') }}">
                     {{ csrf_field() }}
                     <div class="error">
@@ -61,6 +64,7 @@
                 </form>
             </div>
         </div>
+    </div>
         {{-- <div class="panel panel-default">
             <div class="panel-heading">Login</div>
             <div class="panel-body">
