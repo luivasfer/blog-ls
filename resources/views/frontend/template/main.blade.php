@@ -10,9 +10,39 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     {{-- <link rel="stylesheet" href="{{asset('css/normalize.css')}}"> --}}
     <link rel="stylesheet" href="{{asset('css/propios.css')}}">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="{{asset('plugins/trumbowyg/ui/trumbowyg.min.css')}}">
     
     <link rel="stylesheet" href="{{asset('plugins/chosen/chosen.min.css')}}">
+    <style>
+        <style type="text/css">
+ 
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .slider {
+        width: 50%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+      margin: 0px 20px;
+    }
+
+    .slick-slide img {
+      width: 100%;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: black;
+    }
+  </style>
+    </style>
+    
+    
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js') }}"></script>
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Fjalla+One|Ek+Mukta|Lobster" rel="stylesheet">
 </head>
@@ -37,7 +67,10 @@
     
 
     <script src="{{ asset('js/app.js') }}"></script>
+
+    
     <script src="{{ asset('js/propios.js') }}"></script>
+    
     <script>
         //$( "p" ).addClass( "visibility animated fadeIn wow" );
         new WOW().init();
@@ -88,6 +121,18 @@
             });
         })
     </script>
+    {{-- Slide --}}
+    <script src="{{ asset('js/carrusel.js') }}"></script>
+    <script>
+        $('.main-carousel').flickity({
+        // options
+        cellAlign: 'left',
+        contain: true,
+        autoPlay: 10000,
+        pauseAutoPlayOnHover: true,
+        });
+    </script>
+    {{-- FIN Slide --}}
    
     
     
