@@ -80,7 +80,9 @@
                 </div>
             @endif
             <div class="logo text-center">
-                <img src="{{asset('img/logo-lasalle.svg')}}" width="70px" alt="Logo La Salle La Paz" class="visibility fadeIn animated wow">
+                <a href="{{ route('frontend.index') }}">
+                    <img src="{{asset('img/logo-lasalle.svg')}}" width="70px" alt="Logo La Salle La Paz" class="visibility fadeIn animated wow">
+                </a>
             </div>
             <div class="titulo">
                 Blog La Salle La Paz
