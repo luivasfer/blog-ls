@@ -69,6 +69,7 @@
         </div>
     </div>
     @include('frontend.partes.modal-login')
+    @include('frontend.partes.footer')
 </div>
 @endsection
  

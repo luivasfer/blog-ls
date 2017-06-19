@@ -14,35 +14,7 @@
     <link rel="stylesheet" href="{{asset('plugins/trumbowyg/ui/trumbowyg.min.css')}}">
     
     <link rel="stylesheet" href="{{asset('plugins/chosen/chosen.min.css')}}">
-    <style>
-        <style type="text/css">
- 
-
-    * {
-      box-sizing: border-box;
-    }
-
-    .slider {
-        width: 50%;
-        margin: 100px auto;
-    }
-
-    .slick-slide {
-      margin: 0px 20px;
-    }
-
-    .slick-slide img {
-      width: 100%;
-    }
-
-    .slick-prev:before,
-    .slick-next:before {
-        color: black;
-    }
-  </style>
-    </style>
-    
-    
+       
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js') }}"></script>
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Fjalla+One|Ek+Mukta|Lobster|Raleway:200,400" rel="stylesheet">
 </head>
@@ -53,22 +25,9 @@
         </p>
     <![endif]-->
     @yield('contenido')   
-    
-    {{-- footer --}}
-    {{-- <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <footer>
-                    © La Salle La Paz - 2017
-                </footer>
-            </div>
-        </div>
-    </div> --}}
-    
 
     <script src="{{ asset('js/app.js') }}"></script>
 
-    
     <script src="{{ asset('js/propios.js') }}"></script>
     
     <script>

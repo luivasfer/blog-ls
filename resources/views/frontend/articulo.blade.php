@@ -132,8 +132,6 @@
                             </div>
                     @endforeach
                 </div>
-                
-
             </div>
 
             {{-- menu derecho --}}
@@ -142,4 +140,5 @@
         </div>
     </div>
     @include('frontend.partes.modal-login')
+    @include('frontend.partes.footer')
 @endsection
