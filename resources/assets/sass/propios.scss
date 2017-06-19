@@ -87,13 +87,8 @@ html, body{
                         width: 41px;
                         height: 93px;
                         position: absolute;
-                        left: 70px;
-                        -moz-transform: scaleX(-1);
-                        -o-transform: scaleX(-1);
-                        -webkit-transform: scaleX(-1);
-                        transform: scaleX(-1);
-                        filter: FlipH;
-                        -ms-filter: "FlipH";
+                        left: 160px;
+                        
                     }
                     .usuario{
                         top:10px;
@@ -107,13 +102,8 @@ html, body{
                         width: 42px;
                         height: 96px;
                         position: absolute;
-                        left: 160px;
-                        -moz-transform: scaleX(-1);
-                        -o-transform: scaleX(-1);
-                        -webkit-transform: scaleX(-1);
-                        transform: scaleX(-1);
-                        filter: FlipH;
-                        -ms-filter: "FlipH";
+                        left: 70px;
+                        
                     }
                     .comentario{
                         width: 60px;
@@ -137,7 +127,7 @@ html, body{
                 .main-carousel{
                     ol{
                         position: absolute;
-                        top: 6em;
+                        bottom: -2em;
                     }
                     .dot{
                         border: 3px solid #c00000;
@@ -249,7 +239,7 @@ html, body{
         align-items: center;
         float: left;
         //color:black;
-        color:#2778c4;
+        color:#c90000;
         font-size: 1.3em;
         height: 50px;
         padding-left: .6em;
@@ -826,6 +816,21 @@ footer{
 .cursor{
     cursor: pointer;
 }
+
+
+/////******///****RESPONSIVE***///***/////
+@media (max-width: 768px) {
+    .carousel{
+        padding: 0 3em;
+        color: white;
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.2em !important;
+        font-weight: 200;
+        text-align: center;
+    }
+}
+
+
 
 /*!
  * animate.css -http://daneden.me/animate
