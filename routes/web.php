@@ -58,19 +58,19 @@ Route::prefix('admin')->middleware('auth')->group(function(){
     //Route::name('usuario.index')
       //  ->get('usuario','UsersController@index');
     
-    Route::resource('usuario', 'UsersController', ['middleware' => 'nivel']);
+    Route::resource('usuario', 'UsersController', ['middleware' => 'nivel', 'middleware' => 'usuario']);
     Route::get('usuario/{id}/destroy',[
         'uses' => 'UsersController@destroy',
         'as'   => 'usuario.destroy'
     ]);
 
-    Route::resource('categorias', 'CategoriasController', ['middleware' => 'nivel']);
+    Route::resource('categorias', 'CategoriasController', ['middleware' => 'nivel', 'middleware' => 'usuario']);
     Route::get('categorias/{id}/destroy',[
         'uses' => 'CategoriasController@destroy',
         'as'   => 'categorias.destroy'
     ]);
 
-    Route::resource('tags', 'TagsController', ['middleware' => 'nivel']);
+    Route::resource('tags', 'TagsController', ['middleware' => 'nivel', 'middleware' => 'usuario']);
     Route::get('tags/{id}/destroy',[
         'uses' => 'TagsController@destroy',
         'as'   => 'tags.destroy'
