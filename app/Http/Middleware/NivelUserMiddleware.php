@@ -17,11 +17,12 @@ class NivelUserMiddleware
     {
         if(isset($request->user()->nivel)){
             if (($request->user()->nivel == 'alumno') != ($request->user()->id == '')) {
-                echo"
-                    <script>
-                        window.history.back(-1);
-                    </script>
-                ";
+                return redirect()->route('frontend.index');
+                // echo"
+                //     <script>
+                //         window.history.back(-1);
+                //     </script>
+                // ";
             }
         }
         return $next($request);
