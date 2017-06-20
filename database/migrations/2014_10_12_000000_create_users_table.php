@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 80);
             $table->string('foto', 80)->nullable();
             $table->string('telefono', 10)->nullable();
-            $table->integer('ci')->nullable();
+            $table->integer('curso')->nullable();
             $table->enum('sexo', ['m', 'f']);
             $table->enum('estado', [0, 1])->default(1);
             $table->enum('nivel', ['admin','profesor','alumno'])->default('alumno');
