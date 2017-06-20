@@ -18,6 +18,18 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-9">
+                <div class="row">
+                    <div class="col-xs-12 text-center bienvenido">
+                        <h4>Bienvenido</h4>
+                        <div class="linea"></div>
+                        <p>Ahora podrás buscar, obtener, procesar y comunicar información para transformarla en conocimiento y poder compartir con toda la comunidad estudiantil.</p>
+                    </div>
+                </div>
+                <div class="row titulos">
+                    <div class="col-xs-6"><span class="bolita"></span> ARTÍCULOS</div>
+                    <div class="col-xs-6 text-right">La Paz, 19 Junio 2017</div>
+                </div>
+                
                 {{-- GRID --}}
                  <div id="container-01">
                     @foreach($articulos as $articulo)
