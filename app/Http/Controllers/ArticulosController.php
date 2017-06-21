@@ -25,9 +25,9 @@ class ArticulosController extends Controller
         //$productos = Articulo::buscador($request->articulo)->orderBy('id','DESC')->paginate(20);
             $usuario = auth()->user()->id;
             if($usuario == 1){
-                $articulos = Articulo::orderBy('id','DESC')->paginate(20);
+                $articulos = Articulo::all();
             }else{
-                $articulos = Articulo::where('user_id', $usuario)->orderBy('id','DESC')->paginate(20);
+                $articulos = Articulo::all()->where('user_id', $usuario);
             }
             
             
@@ -148,12 +148,22 @@ class ArticulosController extends Controller
         //pluck -> listamos los obtjetos y convertimos en array
         $my_tags = $articulo->tags->pluck('id')->ToArray();
         //dd($my_tags);
-
-        return view('admin.articulos.edit')
+        
+        if((\Auth::user()->id == $articulo->id) != (\Auth::user()->id == 1)){
+            return view('admin.articulos.edit')
             ->with('categorias', $categorias)
             ->with('articulo', $articulo)
             ->with('tags', $tags)
             ->with('my_tags', $my_tags);
+        }
+
+        echo '
+            <script>
+                window.history.back(); 
+            </script>
+        ';
+
+        
     }
 
     /**
@@ -203,6 +213,7 @@ class ArticulosController extends Controller
             $articulo->articulo = $_POST['articulo'];
             $articulo->categoria_id = $_POST['categoria_id'];
             $articulo->contenido = $_POST['contenido'];
+            $articulo->estado = $_POST['estado'];
             $articulo->img = $name;
             
             $articulo->save();
@@ -222,6 +233,7 @@ class ArticulosController extends Controller
         $articulo->articulo = $_POST['articulo'];
         $articulo->categoria_id = $_POST['categoria_id'];
         $articulo->contenido = $_POST['contenido'];
+        $articulo->estado = $_POST['estado'];
         
 
 

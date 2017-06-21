@@ -42,7 +42,7 @@ class FrontController extends Controller
         $listaCategorias = Categoria::all();
 
 
-        $articulos = Articulo::orderBy('created_at','DESC')->paginate(10);
+        $articulos = Articulo::where('estado','=','1')->orderBy('updated_at','DESC')->paginate(2);
         $categorias = Categoria::all();
 
          //simulamos el foreach

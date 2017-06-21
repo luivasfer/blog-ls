@@ -30,18 +30,46 @@
                     {!! Form::label('img', 'Imagen'); !!}
                     {!! Form::file('img',['class'=>'form-control', 'accept'=>'.png, .jpg, .jpeg']); !!}
                     <br>
-                    <img src="{{asset('img/articulos/thumb150/')}}/{{$articulo->img}}" alt="">
+                    <center><img src="{{asset('img/articulos/thumb150/')}}/{{$articulo->img}}" alt=""></center>
                 </div>
+                
+                <div class="switch-field">
+                    <p><strong>Publicado</strong></p>
+                    <?php 
+                        if($articulo->estado == 1){
+                    ?>
+                        <input type="radio" id="switch_left" name="estado" value="1" checked/>
+                        <label for="switch_left">SI</label>
+                        <input type="radio" id="switch_right" name="estado" value="0"/>
+                        <label for="switch_right">NO</label>
+                    <?php                            
+                        }else{
+                    ?>
+                        <input type="radio" id="switch_left" name="estado" value="1"/>
+                        <label for="switch_left">SI</label>
+                        <input type="radio" id="switch_right" name="estado" value="0" checked/>
+                        <label for="switch_right">NO</label>
+                    <?php                            
+                        }
+                    ?>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <a href="{{ route('articulos.index') }}" class="btn btn-primary">
+                        <i class="glyphicon glyphicon-hand-left"></i>
+                    </a>
+                    {!! Form::submit('Modificar Articulo',['class'=>'btn btn-primary']); !!}
+                </div>
+                
+
             </div>
+
+            
         </div>
 
         
-        <div class="form-group">
-            <a href="{{ route('articulos.index') }}" class="btn btn-primary">
-                <i class="glyphicon glyphicon-hand-left"></i>
-            </a>
-            {!! Form::submit('Editar Articulo',['class'=>'btn btn-primary']); !!}
-        </div>
+        
      {!! Form::close() !!}
      
 

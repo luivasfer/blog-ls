@@ -4,7 +4,7 @@
             @if(isset(Auth::user()->id))
                 {{-- preguntamos si hay sesion --}}
                     @if((Auth::user()->nivel == "admin") != (Auth::user()->nivel == "profesor"))
-                        <div class="usuario" style="background-image: url(img/admin/usuarios/thumb150/{{Auth::user()->foto}})">
+                        <div class="usuario" style="background-image: url(/img/admin/usuarios/thumb150/{{Auth::user()->foto}})">
                         </div>
                         <div class="menu-caja">
                             <div class="linea"></div>
@@ -33,7 +33,7 @@
                         </div>
                     
                     @else
-                        <div class="usuario" style="background-image: url(img/admin/usuarios/thumb150/{{Auth::user()->foto}})">
+                        <div class="usuario" style="background-image: url(/img/admin/usuarios/thumb150/{{Auth::user()->foto}})">
                         </div>
                         <div class="menu-caja">
                             <div class="linea"></div>

@@ -75,6 +75,9 @@
                     </div>
                     @endforeach
                 </div>
+                <div class="text-center">
+                    {{ $articulos->links() }}
+                </div>
             </div>
             {{-- menu derecho --}}
             @include('frontend.partes.menu-derecho')

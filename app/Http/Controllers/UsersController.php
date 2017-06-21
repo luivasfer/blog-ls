@@ -19,12 +19,14 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $usuario = auth()->user()->id;
-        if($usuario == 1){
-            $users = User::orderBy('id','ASC')->paginate(10);
-        }else{
-            $users = User::where('id', $usuario)->orderBy('id','ASC')->paginate(10);
-        }
+        //$usuario = auth()->user()->id;
+        
+        $users = User::all();
+        // if($usuario == 1){
+        //     $users = User::orderBy('id','ASC')->paginate(10);
+        // }else{
+        //     $users = User::where('id', $usuario)->orderBy('id','ASC')->paginate(10);
+        // }
         return view('admin.usuario.index')->with('users', $users);
     }
 

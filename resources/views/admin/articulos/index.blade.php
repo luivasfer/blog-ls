@@ -20,7 +20,10 @@
                     <th>Imagen</th>
                     <th>Artículo</th>
                     <th>Categoria</th>
-                    <th>Usuario</th>
+                    <th>Publicado</th>
+                    @if(Auth::user()->id == 1)
+                        <th>Usuario</th>
+                    @endif
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -32,7 +35,10 @@
                     <th>Imagen</th>
                     <th>Artículo</th>
                     <th>Categoria</th>
-                    <th>Usuario</th>
+                    <th>Publicado</th>
+                    @if(Auth::user()->id == 1)
+                        <th>Usuario</th>
+                    @endif
                     <th>Acciones</th>
                 </tr>
             </tfoot>
@@ -47,8 +53,20 @@
                             <img src="{{ asset('img/articulos/thumb150/')}}/{{$articulo->img }}" width="80" alt="{{ ucfirst($articulo->articulo) }}">
                         </center>
                     </td>
-                    <td>{{ ucfirst($articulo->articulo) }}</td>
+                    <td><a href="#">{{ ucfirst($articulo->articulo) }}</a></td>
                     <td>{{ ucwords($articulo->categoria->categoria) }}</td>
+                    <td>
+                        @if($articulo->estado == 1)
+                            <center>
+                                <img src="{{ asset('img/bandera-verde.svg') }}" width="17" alt="Publicado">
+                            </center>
+                        @else
+                            <center>
+                                <img src="{{ asset('img/bandera-roja.svg') }}" width="17" alt="No publicado">
+                            </center>
+                        @endif
+                    </td>
+                    @if(Auth::user()->id == 1)
                     <td>
                         <?php
                             $nombre = $articulo->user->name; 
@@ -58,12 +76,13 @@
                             echo ucwords($apellido[0] . "  " . $nombre[0]); // esto muestra la primera palabra 
                         ?>
                     </td>
+                    @endif
                     <td>
-                        <a href="{{ route('articulos.edit', $articulo->id) }}" class="btn btn-success btn-sm">
+                        <a href="{{ route('articulos.edit', $articulo->id) }}" class="btn btn-success btn-sm" title="Modificar">
                             <i class="glyphicon glyphicon-edit"></i>
                         </a>
                         
-                        <a href="{{ route('articulos.destroy', $articulo->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que de seas eliminarlo?')">
+                        <a href="{{ route('articulos.destroy', $articulo->id) }}" class="btn btn-danger btn-sm" title="Eliminar" onclick="return confirm('¿Seguro que de seas eliminarlo?')">
                             <i class="glyphicon glyphicon-remove-circle"></i>
                         </a>
                     </td>
@@ -72,9 +91,9 @@
             </tbody>
         </table>
     </div>
-    <div class="text-center">
+    {{-- <div class="text-center">
         {{ $articulos->links() }}
-    </div>
+    </div> --}}
     
 
 @endsection

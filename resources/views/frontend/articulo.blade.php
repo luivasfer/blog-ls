@@ -3,7 +3,17 @@
 @section ('titulo', 'Articulo')
 @section ('contenido')
 
-    @include('frontend.partes.menu-principal')
+@include('frontend.partes.menu-principal')
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="titulo-blog margin-top5em">
+                
+            </div>
+        </div>
+    </div>
+</div>
 
     @foreach($articulos as $articulo)
     @endforeach
@@ -11,7 +21,7 @@
     @endforeach
     @foreach($users->where('id', $articulo->user_id) as $user)
     @endforeach
-    <div class="container margin-top5em">
+    <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <ol class="breadcrumb">
@@ -74,7 +84,6 @@
                                 <input type="hidden" name="u" value="{{Auth::user()->id}}" id="u">
                                 <input type="hidden" name="c" value="{{$categoria->id}}" id="c">
                             </div>
-
                             <div class="form-group">
                                 {!! Form::submit('Añadir Comentario',['class'=>'btn btn-primary']); !!}
                             </div>

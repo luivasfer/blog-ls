@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/chosen/chosen.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/template.css')}}">
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Fjalla+One|Ek+Mukta" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Fjalla+One|Ek+Mukta|Lobster|Raleway:200,400" rel="stylesheet">
 
 </head>
 <body>
@@ -81,7 +81,7 @@
         </div><!-- /.container-fluid -->
     </nav>
     {{-- FIN MENU --}}
-    <div class="container">
+    <div class="container admin">
         <div class="row">
             @include('flash::message')
             @if(count($errors)>0)

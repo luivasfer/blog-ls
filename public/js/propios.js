@@ -70,3 +70,6 @@ $(document).ready(function($) {
 // 	},1000);
 // });
 
+/// -------switch Botstrap
+
+

@@ -30,6 +30,21 @@
                     {!! Form::label('img', 'Imagen'); !!}
                     {!! Form::file('img',['class'=>'form-control', 'accept'=>'.png, .jpg, .jpeg']); !!}
                 </div>
+
+                <div class="switch-field">
+                    <p><strong>¿Publicar Ahora?</strong></p>
+                    <input type="radio" id="switch_left" name="estado" value="1"/>
+                    <label for="switch_left">SI</label>
+                    <input type="radio" id="switch_right" name="estado" value="0" checked/>
+                    <label for="switch_right">NO</label>
+                </div>
+                <br>
+                <div class="form-group">
+                    <a href="{{ route('articulos.index') }}" class="btn btn-primary">
+                        <i class="glyphicon glyphicon-hand-left"></i>
+                    </a>
+                    {!! Form::submit('Crear artículo',['class'=>'btn btn-primary']); !!}
+                </div>
             </div>
         </div>
 
@@ -38,12 +53,7 @@
             {!! Form::select('tags[]', $tags, null, ['class'=>'form-control select-tag', 'multiple']) !!}
         </div> --}}
 
-        <div class="form-group">
-            <a href="{{ route('articulos.index') }}" class="btn btn-primary">
-                <i class="glyphicon glyphicon-hand-left"></i>
-            </a>
-            {!! Form::submit('Crear artículo',['class'=>'btn btn-primary']); !!}
-        </div>
+        
      {!! Form::close() !!}
      
 
