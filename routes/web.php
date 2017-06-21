@@ -15,6 +15,16 @@
 //     return view('welcome');
 // });
 
+//ERROR
+
+Route::get('error',function(){
+    abort(404);
+});
+// Route::get('error',function(){
+//     abort(403);
+// });
+
+
 // FRONTEND
 
 Route::name('frontend.index')

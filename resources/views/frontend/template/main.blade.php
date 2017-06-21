@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{asset('plugins/chosen/chosen.min.css')}}">
        
     <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js') }}"></script>
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Fjalla+One|Ek+Mukta|Lobster|Raleway:200,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Fjalla+One|Ek+Mukta:400,700|Lobster|Raleway:200,400" rel="stylesheet">
 </head>
 <body>
     <!-- [if lt IE 9]>

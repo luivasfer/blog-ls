@@ -53,7 +53,11 @@
                             <img src="{{ asset('img/articulos/thumb150/')}}/{{$articulo->img }}" width="80" alt="{{ ucfirst($articulo->articulo) }}">
                         </center>
                     </td>
-                    <td><a href="#">{{ ucfirst($articulo->articulo) }}</a></td>
+                    
+                    <td>
+                        {{-- {{$articulo->categoria->categoria}}/{{$articulo->id}}/{{$articulo->slug}} --}}
+                        <a href="{{ url('articulo')}}/{{$articulo->categoria->categoria}}/{{$articulo->id}}/{{$articulo->slug}}" target="_blank">{{$articulo->articulo}}</a>
+                    </td>
                     <td>{{ ucwords($articulo->categoria->categoria) }}</td>
                     <td>
                         @if($articulo->estado == 1)

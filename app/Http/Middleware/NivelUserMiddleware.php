@@ -16,8 +16,13 @@ class NivelUserMiddleware
     public function handle($request, Closure $next)
     {
         if(isset($request->user()->nivel)){
-            if (($request->user()->nivel == 'alumno') != ($request->user()->id == '')) {
+            if (($request->user()->nivel == 'alumno')) {
+                
                 return redirect()->route('frontend.index');
+
+                
+                //return response()->view('errors.403');
+                //return redirect()->route('frontend.index');
                 // echo"
                 //     <script>
                 //         window.history.back(-1);

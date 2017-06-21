@@ -69,7 +69,7 @@ class FrontController extends Controller
     {
         //* BARRRA DER/
         $contarArticulos = Articulo::all();
-        $ultimosArticulos = Articulo::orderBy('id','DESC')->limit(5)->get();
+        $ultimosArticulos = Articulo::where('estado','=','1')->orderBy('id','DESC')->limit(5)->get();
         $listaCategorias = Categoria::all();
         $categorias = Categoria::all();
         $users = User::all();

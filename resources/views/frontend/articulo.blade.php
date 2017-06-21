@@ -26,12 +26,12 @@
             <div class="col-xs-12">
                 <ol class="breadcrumb">
                     <li><a href="{{route('frontend.articulos')}}">Articulos</a></li>
-                    <li class="active">{{$articulo->articulo}}</li>
+                    <li class="active">{{ ucfirst($articulo->articulo)}}</li>
                 </ol>
             </div>
             <div class="col-xs-12 col-sm-9 articulo">
                 
-                <h1>{{$articulo->articulo}}</h1>
+                <h1>{{ ucfirst($articulo->articulo)}}</h1>
                 {{-- Fecha --}}
                 <div class="row">
                     <div class="col-xs-8">
