@@ -149,7 +149,11 @@ class ArticulosController extends Controller
         $my_tags = $articulo->tags->pluck('id')->ToArray();
         //dd($my_tags);
         
-        if((\Auth::user()->id == $articulo->id) != (\Auth::user()->id == 1)){
+        //dd($articulo->user_id);
+        //dd (\Auth::user()->id);
+
+        if((\Auth::user()->id == $articulo->user_id) OR (\Auth::user()->id == 1) ){
+
             return view('admin.articulos.edit')
             ->with('categorias', $categorias)
             ->with('articulo', $articulo)

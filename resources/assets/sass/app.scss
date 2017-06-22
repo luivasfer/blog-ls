@@ -8,12 +8,43 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-
-
+body{
+    background-color: #f7f7f7;
+}
 /*ADMIN*/
 .admin, p{
     font-family: 'Ek Mukta', sans-serif;
     font-size: 14px;
+}
+.mayusculas{
+    text-transform: uppercase;
+}
+/*ARITUCULOS*/
+.plantilla-enlace{
+    margin: .5em 0 1em 0;
+}
+.plantillas{
+    margin: 1em 0;
+    border:1px solid #ededed;
+    padding-top:1em;
+    h6{
+        padding: .7em 1em .5em 1em;
+        background-color: white;
+        border-radius: 15px;
+        width: 100px;
+    }
+    .cur-zoom{
+        cursor:zoom-in;
+    }
+}
+.subtitulos{
+    font-size: 1.2em;
+    font-weight: normal;
+    color: #3097D1;
+    border-left: 2px solid #3097D1;  
+    padding: 0 0 0 .4em;
+    margin-bottom: 1em;
+    width: 100%;
 }
 
 /*PROPIOS*/

@@ -107,7 +107,16 @@
 
     {{-- SCRIPTS --}}
     <script src="{{ asset('js/app.js') }}"></script>
-     {{-- ALERTIFY --}}
+    {{-- File --}}
+    <script src="{{ asset('js/file-boot.js') }}"></script>
+    <script type="text/javascript">
+		$('#input10').filestyle({
+			buttonText : 'Imagen',
+			buttonName : 'btn-primary',
+            icon : false
+	    });
+    </script>
+    {{-- ALERTIFY --}}
     <script src="{{ asset('js/alert.js') }}"></script>
     <script>
         $('.alerta').click(function(){

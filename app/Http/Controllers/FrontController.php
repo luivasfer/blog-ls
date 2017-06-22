@@ -39,7 +39,7 @@ class FrontController extends Controller
 
         //dd($contarArticulos);
         $ultimosArticulos = Articulo::where('estado','=','1')->orderBy('updated_at','DESC')->limit(5)->get();
-        $listaCategorias = Categoria::all();
+        $listaCategorias = Categoria::orderBy('categoria', 'ASC')->get();
 
 
         $articulos = Articulo::where('estado','=','1')->orderBy('updated_at','DESC')->paginate(15);
