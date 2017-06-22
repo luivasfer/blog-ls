@@ -57,7 +57,6 @@
                             $apellido = explode(" ",$apellido);
                             echo ucwords($nombre[0] . "  " . $apellido[0]); 
                         ?>
-
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
@@ -94,8 +93,15 @@
                 </div>
             @endif
             @yield('contenido')
+            
+            <div class="col-xs-12 text-center margin-top20 border-top">
+            <footer class="padding-y20">
+                © La Salle La Paz - 2017
+            </footer>
+        </div>
         </div>
     </div>
+    
     
     
 

@@ -35,13 +35,13 @@
                     @foreach($articulos as $articulo)
                     @foreach($categorias->where('id',$articulo->categoria_id) as $categoria)
                     @endforeach
-                    <div class="pinto visibility fadeIn animated wow" data-wow-delay="1s">
+                    <div class="pinto visibility fadeInUp animated wow" data-wow-delay=".5s">
                         <a href="{{ url('articulo')}}/{{$categoria->slug}}/{{$articulo->id}}/{{$articulo->slug}}">
                             <img src="{{asset('img/articulos/thumb350/')}}/{{$articulo->img}}" class="img">
                         </a>
                         <div class="info">
                             <a href="{{ url('articulo')}}/{{$categoria->slug}}/{{$articulo->id}}/{{$articulo->slug}}">
-                                <h2>{{ $articulo->articulo }}</h2>
+                                <h2>{{ ucfirst($articulo->articulo) }}</h2>
                             </a>
                             <div class="publicado visibility fadeIn wow animated" data-wow-delay="1.5s">
                                 <p> {{$articulo->created_at->diffForHumans()}}
@@ -58,10 +58,8 @@
                                     <img src="{{asset('img/compartir.svg')}}" class="img1 margin-right1em" title="compartir" width="14"  alt="Comentario"> 
                                     <span class="c-silver"> | </span> 
                                     <img src="{{asset('img/comentario.svg')}}" title="Comentarios" class="img1 margin-left1em" width="15" alt="Comentario">
-                                    
                                     @foreach($comentarios as $comentario)
                                     @endforeach
-
                                     <span class="font-size12">
                                     @if(isset($comentario))
                                         {{ $comentario->where('articulo_id', $articulo->id)->count() }}

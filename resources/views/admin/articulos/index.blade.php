@@ -56,7 +56,7 @@
                     
                     <td>
                         {{-- {{$articulo->categoria->categoria}}/{{$articulo->id}}/{{$articulo->slug}} --}}
-                        <a href="{{ url('articulo')}}/{{$articulo->categoria->categoria}}/{{$articulo->id}}/{{$articulo->slug}}" target="_blank">{{$articulo->articulo}}</a>
+                        <a href="{{ url('articulo')}}/{{$articulo->categoria->categoria}}/{{$articulo->id}}/{{$articulo->slug}}" target="_blank">{{ ucfirst($articulo->articulo)}}</a>
                     </td>
                     <td>{{ ucwords($articulo->categoria->categoria) }}</td>
                     <td>

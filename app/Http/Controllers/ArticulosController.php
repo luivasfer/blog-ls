@@ -27,7 +27,7 @@ class ArticulosController extends Controller
             if($usuario == 1){
                 $articulos = Articulo::all();
             }else{
-                $articulos = Articulo::all()->where('user_id', $usuario);
+                $articulos = Articulo::where('user_id', $usuario)->orderBy('updated_at', 'DESC')->get();
             }
             
             

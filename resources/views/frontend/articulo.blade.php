@@ -61,32 +61,23 @@
                     ?>
                 </div>
                 <hr>
-                    @include('flash::message')
-                    @if(count($errors)>0)
-                        <div class="alert alert-danger" role="alert">
-                            <ul>
-                                @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
                     @yield('contenido')
-                    
                 <div class="comentarios">
                     <center><h3>Añadir Comentario</h3></center>
-                    
                     @if(isset(Auth::user()->id))
                         {!! Form::open(['route' => 'comentarios.store', 'method'=>'POST', 'files' => true]) !!}
+                            <div id="comentario"></div>
                             <div class="form-group">
                                 {!! Form::textarea('comentario', null, ['class'=>'form-control editor', 'placeholder' => 'Escribe aquí', 'rows'=>5]); !!}
                                 <input type="hidden" name="a" value="{{$articulo->id}}" id="a">
                                 <input type="hidden" name="u" value="{{Auth::user()->id}}" id="u">
                                 <input type="hidden" name="c" value="{{$categoria->id}}" id="c">
                             </div>
+                            
                             <div class="form-group">
                                 {!! Form::submit('Añadir Comentario',['class'=>'btn btn-primary']); !!}
                             </div>
+                            
                         {!! Form::close() !!}
                     @else
                         <center><p class="btn btn-default c-azul" data-toggle="modal" data-target="#myModal">
@@ -95,6 +86,16 @@
                     @endif
                     
                 </div>
+                @include('flash::message')
+                @if(count($errors)>0)
+                    <div class="alert alert-danger" role="alert">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="comentarios-usuarios">
 
                     @foreach($comentarios as $comentario)

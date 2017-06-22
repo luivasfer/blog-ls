@@ -46,14 +46,17 @@
         });
                 
     </script>
-    {{-- para que funcione esta pagina --}}
-    <script>
-        $(function() {
-            window.scrollTo(0, 2);
-        });
-    </script>
+    
     {{-- scroll --}}
     {{-- MODAL --}}
+
+    <script>
+        //$('#flash-overlay-modal').modal();
+        $('div.alert').not('.alert-important').delay(5000).fadeOut(350);
+        
+    </script>
+
+    
     <script>
         function testAnim(x) {
             $('.modal .modal-dialog').attr('class', 'modal-dialog  ' + x + '  animated');

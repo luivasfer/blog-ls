@@ -44,9 +44,5 @@
         </div>
     </div>
 </div>
-<div class="col-xs-12 text-center margin-top20 border-top">
-            <footer class="padding-y20">
-                © La Salle La Paz - 2017
-            </footer>
-        </div>
+
 @endsection

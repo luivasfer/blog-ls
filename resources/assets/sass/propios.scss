@@ -207,6 +207,7 @@ html, body{
         }
         p{
             font-family: 'Ek Mukta', sans-serif;
+            text-align: justify;
         }
         h4{
             font-family: 'Lobster', cursive;
@@ -342,6 +343,7 @@ html, body{
                     height: 1px;
                     background: #dedede;
                     width: 15px;
+                    border: 1px solid #dedede;
                 }
                 img{
                     margin:0 .4em 0 0; 
@@ -441,16 +443,18 @@ html, body{
 .menu-derecho{
      font-family: 'Ek Mukta', sans-serif;
      border-left: 1px dashed #dbdbdb;
-     padding: 2em auto;
+     padding: 1.5em auto;
 }
 .numero-categoria{
-    background-color: #dadada;
+    border: 1px solid #498EBF;
     position: absolute;
     right: 1.1em;
-    padding: .1em .5em 0 .4em;
+    padding: 0 .2em ;
     border-radius: 3px;
-    color: white;
+    color: #498EBF;
     text-align: center;
+    min-width: 1.2em;
+    height: 1.5em;
 }
 .menu-derecho h3{
     font-size: 1.4em;
@@ -550,7 +554,9 @@ html, body{
     border-radius: 1.5em;
 }
 .comentarios h3{
+    font-family: 'Ek Mukta', sans-serif;
     font-weight: normal;
+    font-size: 1.4em;
     color:#a91c1c;
 }
 /**/
@@ -870,7 +876,8 @@ footer{
     margin-right:0.5em; 
 }
 .margin-left1em{
-    margin-left:0.5em; 
+    margin-left:0.5em;
+    margin-right: .2em; 
 }
 .linea{
     background-color: #e0e0e0;
@@ -882,7 +889,8 @@ footer{
     font-size:14px; 
 }
 .font-size12{
-    font-size:12px; 
+    font-size:14px;
+    color: #2B95BF;
 }
 .profesor{
     background: #55afe0;
@@ -894,8 +902,8 @@ footer{
 .visibility{
     visibility:hidden;
 }
-.margin-top5em{
-    margin-top: 5em;
+.margin-bottom05{
+    margin-bottom: .2em;
 }
 .cursor{
     cursor: pointer;

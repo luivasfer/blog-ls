@@ -6,7 +6,7 @@
                 @endforeach
                     <a href="{{ url('articulo')}}/{{$categoria->slug}}/{{$ultimosArticulo->id}}/{{$ultimosArticulo->slug}}">
                         <div class="ultimo-articulo margin0">
-                            <span class="text-left margin0">{{ $ultimosArticulo->articulo }}</span>
+                            <span class="text-left margin-bottom05">{{ ucfirst($ultimosArticulo->articulo) }}</span>
                             <span><i>{{ucwords($categoria->categoria)}}</i></span>
                         </div>
                     </a>

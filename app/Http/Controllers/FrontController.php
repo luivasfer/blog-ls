@@ -38,11 +38,11 @@ class FrontController extends Controller
         $contarArticulos = Articulo::all();
 
         //dd($contarArticulos);
-        $ultimosArticulos = Articulo::where('estado','=','1')->orderBy('updated_at','DESC')->limit(3)->get();
+        $ultimosArticulos = Articulo::where('estado','=','1')->orderBy('updated_at','DESC')->limit(5)->get();
         $listaCategorias = Categoria::all();
 
 
-        $articulos = Articulo::where('estado','=','1')->orderBy('updated_at','DESC')->paginate(2);
+        $articulos = Articulo::where('estado','=','1')->orderBy('updated_at','DESC')->paginate(15);
         $categorias = Categoria::all();
 
          //simulamos el foreach
