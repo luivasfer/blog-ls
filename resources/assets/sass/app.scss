@@ -11,7 +11,15 @@
 body{
     background-color: #f7f7f7;
 }
+.editor{
+    p{
+        color:red !important;
+    }
+}
 /*ADMIN*/
+#mceu_102{
+    display: none;
+}
 .admin, p{
     font-family: 'Ek Mukta', sans-serif;
     font-size: 14px;

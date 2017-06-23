@@ -10,7 +10,7 @@
 
         <div class="form-group">
             {!! Form::label('archivo', 'Seleccionar tu recurso (formatos permitidos, .png, .jpg, .jpeg, .pdf)'); !!}
-            {!! Form::file('archivo',['class'=>'form-control', 'accept'=>'.png, .jpg, .jpeg, .pdf']); !!}
+            {!! Form::file('archivo',['class'=>'form-control', 'accept'=>'.png, .jpg, .jpeg, .pdf','id'=>'input10']) !!}
         </div>
 
         <div class="form-group">

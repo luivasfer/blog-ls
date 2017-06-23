@@ -29,7 +29,7 @@
                     <li class="active">{{ ucfirst($articulo->articulo)}}</li>
                 </ol>
             </div>
-            <div class="col-xs-12 col-sm-9 articulo">
+            <div class="col-xs-12 col-sm-9 articulo"   style="padding:0 2.5em">
                 
                 <h1>{{ ucfirst($articulo->articulo)}}</h1>
                 {{-- Fecha --}}

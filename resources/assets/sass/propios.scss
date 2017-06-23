@@ -521,10 +521,11 @@ html, body{
     margin: .8em 0 1em 0;
 }
 
-/*----------- CONTENIDO ------------*/
+/*----------- CONTENIDO ARTICULOS------------*/
 .contenido{
     font-family: 'Ek Mukta', sans-serif;
 }
+
 .contenido h1, h2, h3, h4, h5, h5{
     
     color: black; 
@@ -540,10 +541,22 @@ html, body{
 .contenido h6{ font-size: 20px !important; font-weight: 400 !important;}
 
 .contenido p{
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: #333;
 }
-
+.contenido li{
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 1em;
+}
+.contenido blockquote{
+    background-color: #F5F5F5;
+     p{
+    font-size: 1em !important;
+    color: #333;
+    line-height: 1.4em;
+    }
+}
 /*----------- Comentarios -------------*/
 .comentarios{
     font-family: 'Ek Mukta', sans-serif;
