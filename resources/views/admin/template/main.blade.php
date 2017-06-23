@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{{asset('css/template.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Fjalla+One|Ek+Mukta|Lobster|Raleway:200,400" rel="stylesheet">
 
+    @include('frontend.partes.head')
+
 </head>
 <body>
     {{-- MENU --}}
