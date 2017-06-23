@@ -15,7 +15,7 @@
 
                 <table id="example" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
                     <thead>
-                        <tr>
+                        <tr class="fondo-blanco">
                             @if(Auth::user()->id == 1)
                             <th>ID</th>
                             @endif
@@ -29,6 +29,21 @@
                             <th></th>
                         </tr>
                     </thead>
+                    <tfoot class="fondo-blanco">
+                        <tr class="fondo-blanco">
+                            @if(Auth::user()->id == 1)
+                            <th>ID</th>
+                            @endif
+                            <th>Foto</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Email</th>
+                            <th>Curso</th>
+                            <th>Nivel</th>
+                            <th>Estado</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
                     <tbody>
                         @foreach($users as $user)
                         <tr>

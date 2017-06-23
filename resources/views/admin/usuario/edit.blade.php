@@ -28,15 +28,20 @@
             {!! Form::label('estado', 'Estado'); !!}
             {!! Form::select('estado', [1 => 'Acivado', 0 => 'Desactivado'] , $user->estado,  ['class'=>'form-control' ]); !!}
         </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
         <div class="from-group">
             {!! Form::label('foto', 'Foto'); !!}
-            {!! Form::file('foto',['class' => 'form-control', 'accept' => 'image/png, .jpeg, .jpg']); !!}
+            {!! Form::file('foto',['class' => 'form-control', 'accept' => 'image/png, .jpeg, .jpg', 'id'=>'input10']); !!}
         </div>
-        {{-- <div class="form-group">
-            {!! Form::label('telefono', 'Telefono'); !!}
-            {!! Form::text('telefono', $user->apellido, ['class'=>'form-control', 'placeholder' => 'Apellido(s)','required']); !!}
-        </div> --}}
-        <hr>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+            {!! Form::label('sexo', 'Sexo'); !!}
+            {!! Form::select('sexo', ['m' => 'Masculino', 'f' => 'Femenino'] , $user->sexo,  ['class'=>'form-control', 'placeholder' => 'Seleccionar...' ]); !!}
+        </div>
+    </div>
+    <div class="col-xs-12">
         <div class="form-group">
             <a href="{{ route('usuario.index') }}" class="btn btn-primary">
                 <i class="glyphicon glyphicon-hand-left"></i>
