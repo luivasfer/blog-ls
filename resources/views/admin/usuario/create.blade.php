@@ -27,20 +27,11 @@
             {!! Form::label('nivel', 'Nivel'); !!}
             {!! Form::select('nivel', ['Profesor' => 'profesor', 'alumno' => 'Alumno'] , null,  ['class'=>'form-control', 'placeholder' => 'Seleccionar...' ]); !!}
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-6">
         <div class="from-group">
             {!! Form::label('foto', 'Foto'); !!}
-            {!! Form::file('foto',['class' => 'form-control', 'accept' => 'image/png, .jpeg, .jpg', 'id'=>'input10']); !!}
+            {!! Form::file('foto',['class' => 'form-control', 'accept' => 'image/png, .jpeg, .jpg']); !!}
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-        <div class="form-group">
-            {!! Form::label('sexo', 'Sexo'); !!}
-            {!! Form::select('sexo', ['m' => 'Masculino', 'f' => 'Femenino'] , null,  ['class'=>'form-control', 'placeholder' => 'Seleccionar...' ]); !!}
-        </div>
-    </div>
-    <div class="col-xs-12">
+        <hr>
         <div class="form-group">
             <a href="{{ route('usuario.index') }}" class="btn btn-primary">
                 <i class="glyphicon glyphicon-hand-left"></i>

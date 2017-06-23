@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="{{asset('css/template.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Fjalla+One|Ek+Mukta|Lobster|Raleway:200,400" rel="stylesheet">
 
-    @include('frontend.partes.head')
-
 </head>
 <body>
     {{-- MENU --}}
@@ -142,7 +140,6 @@
     <script>
         tinymce.init({
             selector: '.editor',
-            convert_urls : false,
             height: 500,
             theme: 'modern',
             content_style: "div, p, li { font-size: 1.2em; font-family: 'Ek Mukta', sans-serif;} h1, h2, h3, h4, h5, h5{color: black !important; font-weight: 400; font-family: 'Ek Mukta', sans-serif !important; margin: 10px 0;} h1{ font-size: 20px !important; font-weight: 300 !important;} h2{font-size: 17px !important; font-weight: 300 !important;} h3{ font-size: 17px !important; font-weight: 300 !important;} h4{ font-size: 17px !important; font-weight: 300 !important;} h5{ font-size: 17px !important; font-weight: 300 !important;} h6{ font-size: 17px !important; font-weight: 300 !important;} hr{height:1px; background:#ccc; width:100%}",
