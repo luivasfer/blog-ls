@@ -17,7 +17,7 @@
                 @foreach($listaCategorias as $listaCategoria)
                     <div class="categorias-inicio margin0">
                         <img src="{{asset('img/categorias/')}}/{{ $listaCategoria->id }}.svg" width="18" alt="{{ $listaCategoria->categoria }}">
-                        <span class="text-left margin0">{{ $listaCategoria->categoria }}<TICAS></TICAS></span>
+                        <span class="text-left margin0">{{ $listaCategoria->categoria }}</span>
                         <span class="numero-categoria">
                             @foreach($contarArticulos as $contarArticulo)
                             @endforeach

@@ -115,6 +115,7 @@ html, body{
             }
             .linea-inicio{
                 margin: .5em 0 !important;
+                display: block;
                 .linea{
                     height: 1px;
                     width: 60px;
@@ -946,6 +947,17 @@ footer{
         margin: 0 auto;
         position: absolute;
         bottom: -4.7em !important;
+    }
+    .linea-inicio{
+        display: none;
+    }
+    .articulo h1{
+        font-family: 'Fjalla One', sans-serif;
+        font-size: 2em;
+        color: black;
+        line-height: 1.2em;
+        margin-bottom: .1em;
+        text-align: justify;
     }
 
 }

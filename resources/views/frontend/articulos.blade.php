@@ -1,5 +1,26 @@
 @extends('frontend.template.main')
 @section ('titulo', 'Articulos')
+
+@section ('redes-sociales')
+	<!-- REDES SOCIALES-->
+    <meta name="description" content="A través de nuestros artículos ampliaras tus conocimientos, aprenderás cotidianamente y mejoraras tu hábito de lectura. ">
+    <meta name="keywords" content="la salle, colegio, la paz, bolivia, articulos, blog, educacion, estudiantes, establecimiento, primaria, secundaria">
+    <!-- Diseño y Desarrollo, Ing. Luis Vasquez Fernandez -->
+    <meta property="og:url"           content="http://blog.lasalle.edu.bo/articulos" />
+    <meta property="og:type"          content="website"/>
+    <meta property="og:title"         content="Articulos :: Blog La Salle La Paz" />
+    <meta property="og:description"   content="A través de nuestros artículos ampliaras tus conocimientos, aprenderás cotidianamente y mejoraras tu hábito de lectura. " />
+    <meta property="og:image" content="http://blog.lasalle.edu.bo/img/redes-sociales/articulos.jpg"/>
+    
+    <!-- Twitter Card data -->
+    <meta name="twitter:site" content="@lasallelapaz">
+    <meta name="twitter:title" content="Articulos :: Blog La Salle La Paz">
+    <meta name="twitter:description" content="A través de nuestros artículos ampliaras tus conocimientos, aprenderás cotidianamente y mejoraras tu hábito de lectura. ">
+    <meta name="twitter:creator" content="@lasallelapaz">
+    <!-- Resumen Twitter Card con una imagen grande con al menos 280x150px -->
+    <meta name="twitter:image:src" content="http://blog.lasalle.edu.bo/img/redes-sociales/articulos.jpg">
+@endsection
+
 @section ('contenido')
 
 @include('frontend.partes.menu-principal')

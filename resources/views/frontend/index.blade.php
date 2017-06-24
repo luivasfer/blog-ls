@@ -1,6 +1,26 @@
 @extends('frontend.template.main')
-
 @section ('titulo', 'Blog')
+
+@section ('redes-sociales')
+	<!-- REDES SOCIALES-->
+    <meta name="description" content="El Blog nos permitirá intercambiar ideas trabajar en equipo, diseñar y visualizar de manera inmediata.">
+    <meta name="keywords" content="la salle, colegio, la paz, bolivia, blog, educacion, estudiantes, establecimiento, primaria, secundari">
+    <!-- Diseño y Desarrollo, Ing. Luis Vasquez Fernandez -->
+    <meta property="og:url"           content="http://blog.lasalle.edu.bo" />
+    <meta property="og:type"          content="website"/>
+    <meta property="og:title"         content="Blog Colegio La Salle, La Paz - Bolivia" />
+    <meta property="og:description"   content="El Blog nos permitirá intercambiar ideas trabajar en equipo, diseñar y visualizar de manera inmediata." />
+    <meta property="og:image" content="http://blog.lasalle.edu.bo/img/redes-sociales/index.png"/>
+    
+    <!-- Twitter Card data -->
+    <meta name="twitter:site" content="@lasallelapaz">
+    <meta name="twitter:title" content="Blog Colegio La Salle, La Paz - Bolivia">
+    <meta name="twitter:description" content="El Blog nos permitirá intercambiar ideas trabajar en equipo, diseñar y visualizar de manera inmediata.">
+    <meta name="twitter:creator" content="@lasallelapaz">
+    <!-- Resumen Twitter Card con una imagen grande con al menos 280x150px -->
+    <meta name="twitter:image:src" content="http://blog.lasalle.edu.bo/img/redes-sociales/index.png">
+@endsection
+
 @section ('contenido')
     @include('frontend.partes.menu-principal')
     <div class="video-container">
@@ -30,7 +50,7 @@
                     <div class="main-carousel">
                         <div class="carousel" style="width:100%">El <strong>Blog</strong> permite intercambiar ideas, trabajar en equipo, diseñar y visualizar de manera inmediata </div>
                         <div class="carousel" style="width:100% !important">Facilita el auto-conocimiento a través del <strong> feedback </strong> que proporciona los comentarios </div>
-                        <div class="carousel" style="width:100%">Incorporación de diferentes recursos <strong>videos</strong>, <strong>imagenes</strong> para un mejor entendimiento del tema</div>
+                        <div class="carousel" style="width:100%">Incorporación de diferentes <sctrong> recursos multimedia </sctrong> para un mejor entendimiento del tema</div>
                         <div class="carousel" style="width:100%">Posibilita nuevas formas de <strong>comunicación</strong> entre la comunidad estudiantil</div>
                     </div>                
                 </div>

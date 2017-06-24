@@ -1,6 +1,34 @@
 @extends('frontend.template.main')
 
-@section ('titulo', 'Articulo')
+@section ('titulo')
+    @foreach($articulos as $articulo)
+    @endforeach
+    @foreach($categorias->where('id',$articulo->categoria_id) as $categoria)
+    @endforeach
+    {{ ucfirst($articulo->articulo) }} | Blog
+@endsection
+
+@section ('redes-sociales')
+	<!-- REDES SOCIALES-->
+    <meta name="description" content="Nuestros artículos son elaborados por nuestros estudiantes, profesores">
+    <meta name="keywords" content="la salle, colegio, la paz, bolivia, articulos, blog, educacion, estudiantes, establecimiento, primaria, secundaria">
+    <!-- Diseño y Desarrollo, Ing. Luis Vasquez Fernandez -->
+    <meta property="og:url"           content="{{ url('articulo')}}/{{$categoria->slug}}/{{$articulo->id}}/{{$articulo->slug}}" />
+    <meta property="og:type"          content="website"/>
+    <meta property="og:title"         content="{{ ucfirst($articulo->articulo) }} | Blog La Salle" />
+    <meta property="og:description"   content="Nuestros artículos son elaborados por nuestros estudiantes, profesores" />
+    <meta property="og:image" content="http://blog.lasalle.edu.bo/img/articulos/original/{{ $articulo->img }}"/>
+    
+    <!-- Twitter Card data -->
+    <meta name="twitter:site" content="@lasallelapaz">
+    <meta name="twitter:title" content="{{ ucfirst($articulo->articulo) }} | Blog La Salle">
+    <meta name="twitter:description" content="Nuestros artículos son elaborados por nuestros estudiantes, profesores">
+    <meta name="twitter:creator" content="@lasallelapaz">
+    <!-- Resumen Twitter Card con una imagen grande con al menos 280x150px -->
+    <meta name="twitter:image:src" content="http://blog.lasalle.edu.bo/img/articulos/original/{{ $articulo->img }}">
+@endsection
+
+
 @section ('contenido')
 
 @include('frontend.partes.menu-principal')

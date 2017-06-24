@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-9">
                 <div class="form-group">
-                    {!! Form::label('articulo', 'Título del Artículo', ['class' => 'subtitulos']); !!} (*)
+                    {!! Form::label('articulo', 'Título del Artículo', ['class' => 'subtitulos']); !!}
                     {!! Form::text('articulo', null, ['class'=>'form-control', 'placeholder' => 'Título del artículo']); !!}
                 </div>
             </div>

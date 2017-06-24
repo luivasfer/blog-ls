@@ -1,5 +1,8 @@
 @extends ('admin.template.main')
 @section('titulo', 'Lista de productos')
+
+
+
 @section('contenido')
     <div class="row">
         <div class="col-xs-12">
