@@ -50,7 +50,7 @@
                     <div class="main-carousel">
                         <div class="carousel" style="width:100%">El <strong>Blog</strong> permite intercambiar ideas, trabajar en equipo, diseñar y visualizar de manera inmediata </div>
                         <div class="carousel" style="width:100% !important">Facilita el auto-conocimiento a través del <strong> feedback </strong> que proporciona los comentarios </div>
-                        <div class="carousel" style="width:100%">Incorporación de diferentes <sctrong> recursos multimedia </sctrong> para un mejor entendimiento del tema</div>
+                        <div class="carousel" style="width:100%">Incorporación de diferentes <strong> recursos multimedia </strong> para un mejor entendimiento del tema</div>
                         <div class="carousel" style="width:100%">Posibilita nuevas formas de <strong>comunicación</strong> entre la comunidad estudiantil</div>
                     </div>                
                 </div>

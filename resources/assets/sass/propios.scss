@@ -959,6 +959,19 @@ footer{
         margin-bottom: .1em;
         text-align: justify;
     }
+    .login-caja{
+        min-width: 340px;
+        max-width: 360px;
+        width: 100%;
+        .titulo{
+            font-family: 'Lobster', cursive;
+            font-size: 2em;
+            text-align: center;
+            color: #2778C4;
+            margin-bottom: 0.5em;
+            display: none;
+        }
+    }
 
 }
 

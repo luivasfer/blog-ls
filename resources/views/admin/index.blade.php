@@ -10,15 +10,13 @@
         <div class="col-xs-12 col-sm-8 text-justify">
             <h2 class="text-primary">Administración - Blog La Salle La Paz</h2>
             <h3>Hola, 
-                <strong>
                 <?php
                     $nombre = Auth::user()->name; 
                     $nombre = explode(" ",$nombre);
                     $apellido = Auth::user()->apellido; 
                     $apellido = explode(" ",$apellido);
-                    echo ucwords($nombre[0] . "  " . $apellido[0]); 
+                    echo ucwords($nombre[0] . "  " . Auth::user()->apellido); 
                 ?>
-                </strong>
             </h3>
             <p>Ingresaste al Panel de Administración del Blog La Salle La Paz.</p>
             <p><strong>El Blog es un sitio donde podrás publicar de forma cronológica artículos de diversa temática.</strong></p>

@@ -70,9 +70,9 @@
                                 {{ csrf_field() }}
                             </form>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{ route('usuario.index') }}"> Perfil</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </li>
             </ul>
@@ -111,7 +111,7 @@
     <script src="{{ asset('js/file-boot.js') }}"></script>
     <script type="text/javascript">
 		$('#input10').filestyle({
-			buttonText : 'Imagen',
+			buttonText : 'Archivo',
 			buttonName : 'btn-primary',
             icon : false
 	    });
